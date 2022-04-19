@@ -1,0 +1,59 @@
+import { ChainId } from '@foxlottery/core-sdk'
+import { Feature } from 'app/enums'
+
+type FeatureMap = { readonly [chainId in ChainId]?: Feature[] }
+
+const features: FeatureMap = {
+  [ChainId.ETHEREUM]: [
+    Feature.AMM,
+    Feature.LIQUIDITY_MINING,
+    Feature.BENTOBOX,
+    Feature.MIGRATE,
+    Feature.ANALYTICS,
+    Feature.STAKING,
+    Feature.MEOWSHI,
+    Feature.INARI,
+    Feature.VESTING,
+    Feature.LIMIT_ORDERS,
+    Feature.SUSHIGUARD,
+  ],
+  [ChainId.ROPSTEN]: [Feature.AMM, Feature.LIQUIDITY_MINING, Feature.BENTOBOX],
+  [ChainId.RINKEBY]: [Feature.AMM, Feature.LIQUIDITY_MINING, Feature.BENTOBOX],
+  [ChainId.GÖRLI]: [Feature.AMM, Feature.LIQUIDITY_MINING, Feature.BENTOBOX],
+  [ChainId.KOVAN]: [Feature.AMM, Feature.LIQUIDITY_MINING, Feature.BENTOBOX, Feature.TRIDENT],
+  [ChainId.BSC]: [Feature.AMM, Feature.BENTOBOX, Feature.MIGRATE, Feature.ANALYTICS],
+  [ChainId.BSC_TESTNET]: [Feature.AMM],
+  [ChainId.FANTOM]: [
+    Feature.AMM,
+    Feature.ANALYTICS,
+    Feature.LIMIT_ORDERS,
+    Feature.LIQUIDITY_MINING,
+    Feature.ANALYTICS,
+    Feature.BENTOBOX,
+  ],
+  [ChainId.FANTOM_TESTNET]: [Feature.AMM],
+  [ChainId.MATIC]: [
+    Feature.AMM,
+    Feature.LIQUIDITY_MINING,
+    Feature.BENTOBOX,
+    Feature.MIGRATE,
+    Feature.ANALYTICS,
+    Feature.LIMIT_ORDERS,
+    Feature.TRIDENT,
+  ],
+  [ChainId.MATIC_TESTNET]: [Feature.AMM],
+  [ChainId.HARMONY]: [Feature.AMM, Feature.LIQUIDITY_MINING, Feature.ANALYTICS],
+  [ChainId.HARMONY_TESTNET]: [Feature.AMM],
+  [ChainId.AVALANCHE]: [Feature.AMM, Feature.BENTOBOX, Feature.LIMIT_ORDERS, Feature.ANALYTICS],
+  [ChainId.AVALANCHE_TESTNET]: [Feature.AMM],
+  [ChainId.OKEX]: [Feature.AMM],
+  [ChainId.OKEX_TESTNET]: [Feature.AMM],
+  [ChainId.XDAI]: [Feature.AMM, Feature.LIQUIDITY_MINING, Feature.ANALYTICS, Feature.BENTOBOX],
+  [ChainId.MOONRIVER]: [Feature.AMM, Feature.LIQUIDITY_MINING, Feature.ANALYTICS],
+  [ChainId.CELO]: [Feature.AMM, Feature.LIQUIDITY_MINING, Feature.ANALYTICS],
+  [ChainId.ARBITRUM]: [Feature.AMM, Feature.LIQUIDITY_MINING, Feature.ANALYTICS, Feature.BENTOBOX],
+  [ChainId.FUSE]: [Feature.AMM, Feature.LIQUIDITY_MINING, Feature.ANALYTICS],
+  [ChainId.MOONBEAM]: [Feature.AMM, Feature.LIQUIDITY_MINING],
+}
+
+export default features
