@@ -40,7 +40,7 @@ const AccountDetails: FC<AccountDetailsProps> = ({ toggleWalletModal, ENSName })
       .map((k) => SUPPORTED_WALLETS[k].name)[0]
     return (
       <Typography variant="xs" weight={700} className="text-secondary">
-        Connected with {name}
+        {i18n._(t`Connected with ${name}`)}
       </Typography>
     )
   }, [connector, isMetaMask])

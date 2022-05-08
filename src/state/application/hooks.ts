@@ -23,3 +23,7 @@ export function useNetworkModalToggle(): () => void {
 export function useWalletModalToggle(): () => void {
   return useToggleModal(ApplicationModal.WALLET)
 }
+
+export function useCryptoCurrencyModalToggle(): () => void {
+  return useToggleModal(ApplicationModal.CRYPTO_CURRENCY)
+}

@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export enum ApplicationModal {
   WALLET,
   NETWORK,
+  CRYPTO_CURRENCY,
 }
 
 export interface ApplicationState {
