@@ -19,6 +19,7 @@ export function useSelectCryptoCurrency(): (cryptoCurrency: Currency) => void {
   const dispatch = useAppDispatch()
   return useCallback(
     (cryptoCurrency: Currency) => {
+      console.log(cryptoCurrency)
       dispatch(updateCryptoCurrency(cryptoCurrency))
     },
     [dispatch]
