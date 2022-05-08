@@ -315,28 +315,13 @@ export const CUSTOM_BASES: {
  */
 export const COMMON_BASES: ChainTokenList = {
   [ChainId.ETHEREUM]: [
-    // @ts-ignore TYPE NEEDS FIXING
-    ...WRAPPED_NATIVE_ONLY[ChainId.ETHEREUM],
-    // @ts-ignore TYPE NEEDS FIXING
-    SUSHI[ChainId.ETHEREUM],
-    // @ts-ignore TYPE NEEDS FIXING
     ETHEREUM.WBTC,
-    // @ts-ignore TYPE NEEDS FIXING
-    ETHEREUM.MIM,
-    // @ts-ignore TYPE NEEDS FIXING
-    ETHEREUM.SPELL,
-    // @ts-ignore TYPE NEEDS FIXING
-    ETHEREUM.ICE,
-    // @ts-ignore TYPE NEEDS FIXING
+
     ETHEREUM.USDC,
     // @ts-ignore TYPE NEEDS FIXING
     ETHEREUM.USDT,
     // @ts-ignore TYPE NEEDS FIXING
     ETHEREUM.DAI,
-    // @ts-ignore TYPE NEEDS FIXING
-    ETHEREUM.FRAX,
-    // @ts-ignore TYPE NEEDS FIXING
-    ETHEREUM.STG,
   ],
   [ChainId.MATIC]: [
     // @ts-ignore TYPE NEEDS FIXING
