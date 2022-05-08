@@ -334,8 +334,6 @@ export const COMMON_BASES: ChainTokenList = {
     // @ts-ignore TYPE NEEDS FIXING
     ETHEREUM.DAI,
     // @ts-ignore TYPE NEEDS FIXING
-    ETHEREUM.OHM_V2,
-    // @ts-ignore TYPE NEEDS FIXING
     ETHEREUM.FRAX,
     // @ts-ignore TYPE NEEDS FIXING
     ETHEREUM.STG,

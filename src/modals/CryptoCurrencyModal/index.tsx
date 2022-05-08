@@ -14,7 +14,7 @@ const CryptoCurrencyModal: FC = () => {
   return (
     <HeadlessUiModal.Controlled isOpen={isCryptoCurrencyModalOpen} onDismiss={toggleCryptoCurrencyModal}>
       <div className="flex flex-col gap-4">
-        <HeadlessUiModal.Header header={i18n._(t`Select a Token`)} onClose={toggleCryptoCurrencyModal} />
+        <HeadlessUiModal.Header header={i18n._(t`Select a Crypto Currency`)} onClose={toggleCryptoCurrencyModal} />
         <div className="grid grid-flow-row-dense grid-cols-1 gap-4 overflow-y-auto">
           <CommonBases />
         </div>

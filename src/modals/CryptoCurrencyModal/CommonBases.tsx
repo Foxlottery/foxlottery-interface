@@ -1,19 +1,24 @@
 import { Currency } from '@foxlottery/core-sdk'
-import { useLingui } from '@lingui/react'
 import Button from 'app/components/Button'
 import { CurrencyLogo } from 'app/components/CurrencyLogo'
 import Typography from 'app/components/Typography'
 import { COMMON_BASES } from 'app/config/routing'
 import { currencyId } from 'app/functions'
-// import { useCurrencyModalContext } from 'app/modals/CryptoCurrencyModal/CurrencySearchModal'
 import { useActiveWeb3React } from 'app/services/web3'
+import { useCryptoCurrencyModalToggle } from 'app/state/application/hooks'
+import { useSelectCryptoCurrency, useSelectedCryptoCurrency } from 'app/state/lottery/hooks'
 import React, { FC } from 'react'
 
 const CommonBases: FC = () => {
   const { chainId } = useActiveWeb3React()
-  const { i18n } = useLingui()
-  // const { currency: selectedCurrency, onSelect } = useCurrencyModalContext()
-  const onSelect = (e: Currency) => console.log(e)
+  const selectedCurrency = useSelectedCryptoCurrency()
+  const toggleCryptoCurrencyModal = useCryptoCurrencyModalToggle()
+  const selectCryptoCurrency = useSelectCryptoCurrency()
+  const onSelect = (currency: Currency) => {
+    selectCryptoCurrency(currency)
+    toggleCryptoCurrencyModal()
+  }
+
   const bases = typeof chainId !== 'undefined' ? COMMON_BASES[chainId] ?? [] : []
 
   if (bases.length === 0) return <></>
@@ -22,7 +27,7 @@ const CommonBases: FC = () => {
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap gap-2">
         {bases.map((currency: Currency) => {
-          const isSelected = false
+          const isSelected = selectedCurrency == currency
           return (
             <Button
               size="sm"

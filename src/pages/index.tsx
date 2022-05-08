@@ -7,7 +7,7 @@ const Home = () => {
   const { i18n } = useLingui()
   return (
     <>
-      <div className="h-96">
+      <div className="w-full h-96">
         <Lottery />
       </div>
     </>
