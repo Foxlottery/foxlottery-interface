@@ -92,18 +92,7 @@ export const supportedNetworkChainIds = [
   ChainId.MATIC,
   ChainId.ARBITRUM,
   ChainId.AVALANCHE,
-  ChainId.MOONBEAM,
-  ChainId.MOONRIVER,
-  ChainId.FANTOM,
   ChainId.BSC,
-  ChainId.XDAI,
-  ChainId.HARMONY,
-  ChainId.TELOS,
-  ChainId.CELO,
-  ChainId.FUSE,
-  ChainId.OKEX,
-  ChainId.HECO,
-  ChainId.PALM,
 ]
 
 export const SUPPORTED_NETWORKS: Record<

@@ -15,6 +15,7 @@ import * as MOONBEAM from './tokens/moonbeam'
 import * as MOONRIVER from './tokens/moonriver'
 import * as OKEX from './tokens/okex'
 import * as PALM from './tokens/palm'
+import * as ROPSTEN from './tokens/ropsten'
 import * as TELOS from './tokens/telos'
 import * as XDAI from './tokens/xdai'
 
@@ -323,6 +324,7 @@ export const COMMON_BASES: ChainTokenList = {
     // @ts-ignore TYPE NEEDS FIXING
     ETHEREUM.DAI,
   ],
+  [ChainId.ROPSTEN]: [ROPSTEN.DAI, ROPSTEN.LINK, ROPSTEN.UNI, ROPSTEN.WETH],
   [ChainId.MATIC]: [
     // @ts-ignore TYPE NEEDS FIXING
     ...WRAPPED_NATIVE_ONLY[ChainId.MATIC],

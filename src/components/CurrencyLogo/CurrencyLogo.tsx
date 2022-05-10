@@ -7,6 +7,7 @@ import Logo, { UNKNOWN_ICON } from '../Logo'
 
 const BLOCKCHAIN = {
   [ChainId.ETHEREUM]: 'ethereum',
+  [ChainId.ROPSTEN]: 'ropsten',
   [ChainId.BSC]: 'binance',
   [ChainId.CELO]: 'celo',
   [ChainId.FANTOM]: 'fantom',
