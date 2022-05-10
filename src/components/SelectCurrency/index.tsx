@@ -10,9 +10,9 @@ import React, { FC } from 'react'
 
 const SelectCurrency: FC = () => {
   const { i18n } = useLingui()
-
   const currency = useSelectedCryptoCurrency()
   const toggleCryptoCurrencyModal = useCryptoCurrencyModalToggle()
+
   return (
     <>
       {currency ? (

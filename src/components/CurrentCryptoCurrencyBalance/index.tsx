@@ -7,7 +7,7 @@ import { useNativeCurrencyBalances } from 'app/state/wallet/hooks'
 import Dots from '../Dots'
 import Typography from '../Typography'
 
-const CurrentCryptoCurrencyAmount = () => {
+const CurrentCryptoCurrencyBalance = () => {
   const { account, chainId } = useActiveWeb3React()
   const { i18n } = useLingui()
   const userEthBalance = useNativeCurrencyBalances(account ? [account] : [])?.[account ?? '']
@@ -27,4 +27,4 @@ const CurrentCryptoCurrencyAmount = () => {
   )
 }
 
-export default CurrentCryptoCurrencyAmount
+export default CurrentCryptoCurrencyBalance

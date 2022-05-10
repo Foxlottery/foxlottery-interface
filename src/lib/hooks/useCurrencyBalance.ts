@@ -5,6 +5,7 @@ import { isAddress } from 'app/functions/validate'
 import { useInterfaceMulticall } from 'app/hooks/useContract'
 import { useMultipleContractSingleData, useSingleContractMultipleData } from 'app/lib/hooks/multicall'
 import { useActiveWeb3React } from 'app/services/web3'
+import { useSelectedCryptoCurrency } from 'app/state/lottery/hooks'
 import { useMemo } from 'react'
 
 /**
@@ -136,4 +137,14 @@ export default function useCurrencyBalance(
     account,
     useMemo(() => [currency], [currency])
   )[0]
+}
+
+export function useCurrentUserCurrencyBalance(currency?: Currency): CurrencyAmount<Currency> | undefined {
+  const { account } = useActiveWeb3React()
+  return useCurrencyBalance(account ? account : undefined, currency)
+}
+
+export function useCurrentUserCurrentCurrencyBalance(): CurrencyAmount<Currency> | undefined {
+  const currency = useSelectedCryptoCurrency()
+  return useCurrentUserCurrencyBalance(currency)
 }

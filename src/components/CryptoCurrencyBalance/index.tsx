@@ -6,7 +6,7 @@ import { useCurrencyBalance } from 'app/state/wallet/hooks'
 
 import Dots from '../Dots'
 
-const CryptoCurrencyAmount = () => {
+const CryptoCurrencyBalance = () => {
   const { account, chainId } = useActiveWeb3React()
   const { i18n } = useLingui()
   const currency = useSelectedCryptoCurrency()
@@ -24,4 +24,4 @@ const CryptoCurrencyAmount = () => {
   )
 }
 
-export default CryptoCurrencyAmount
+export default CryptoCurrencyBalance

@@ -1,24 +1,18 @@
-import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
-import Button from 'app/components/Button'
-import CryptoCurrencyAmount from 'app/components/CryptoCurrencyAmount'
+import CryptoCurrencyBalance from 'app/components/CryptoCurrencyBalance'
 import NumericalInput from 'app/components/Input/Numeric'
+import LotteryButton from 'app/components/Lottery/LotteryButton'
 import SelectCurrency from 'app/components/SelectCurrency'
 import TokenPrice from 'app/components/TokenPrice'
 import CryptoCurrencyModal from 'app/modals/CryptoCurrencyModal'
-import { useWalletModalToggle } from 'app/state/application/hooks'
-import { useSelectedCryptoCurrency } from 'app/state/lottery/hooks'
-import React, { FC, useState } from 'react'
-import { useWeb3React } from 'web3-react-core'
+import { useChangeInputValue, useInputValue, useSelectedCryptoCurrency } from 'app/state/lottery/hooks'
+import React, { FC } from 'react'
 
 const Lottery: FC = () => {
-  const onChange = (e: any) => setValue(e)
-  const inputDisabled = false
-  const [value, setValue] = useState(0)
   const { i18n } = useLingui()
   const currency = useSelectedCryptoCurrency()
-  const { account } = useWeb3React()
-  const toggleWalletModal = useWalletModalToggle()
+  const inputValue = useInputValue()
+  const changeInputValue = useChangeInputValue()
 
   return (
     <>
@@ -32,31 +26,22 @@ const Lottery: FC = () => {
             <div className="flex gap-1 justify-between items-baseline px-1.5">
               <div className="text-2xl leading-7 tracking-[-0.01em] font-bold relative flex items-baseline flex-grow gap-3 overflow-hidden">
                 <NumericalInput
-                  disabled={inputDisabled}
-                  value={value || ''}
-                  onUserInput={onChange}
+                  value={inputValue || ''}
+                  onUserInput={changeInputValue}
                   placeholder="0.00"
                   className="leading-[36px] focus:placeholder:text-low-emphesis flex-grow w-full text-left bg-transparent text-inherit disabled:cursor-not-allowed"
                   autoFocus
                 />
               </div>
               <div className="text-sm font-semibold text-gray-600 cursor-pointer select-none whitespace-nowrap">
-                <CryptoCurrencyAmount />
+                <CryptoCurrencyBalance />
               </div>
             </div>
           </div>
 
           {currency && <TokenPrice outputCurrency={currency} />}
 
-          {account ? (
-            <Button className="rounded-[14px]" color="gradientGreen" variant="filled">
-              {i18n._(t`Buy a ticket`)}
-            </Button>
-          ) : (
-            <Button onClick={toggleWalletModal} className="rounded-[14px]" color="gradientGreen" variant="filled">
-              {i18n._(t`Connect to a wallet`)}
-            </Button>
-          )}
+          <LotteryButton />
         </div>
       </div>
     </>
