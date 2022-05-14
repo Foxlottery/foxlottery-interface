@@ -91,21 +91,7 @@ export const USDP = new Token(
 )
 export const USDT = new Token(ChainId.ETHEREUM, '0xdAC17F958D2ee523a2206206994597C13D831ec7', 6, 'USDT', 'Tether USD')
 export const UST = new Token(ChainId.ETHEREUM, '0xa47c8bf37f92aBed4A126BDA807A7b7498661acD', 18, 'UST', 'Wrapped UST')
-export const XSUSHI_CALL = new Token(
-  ChainId.ETHEREUM,
-  '0xada279f9301C01A4eF914127a6C2a493Ad733924',
-  18,
-  'XSUc25-0531',
-  'XSUSHI 25 Call [31 May 2021]'
-)
 export const WBTC = new Token(ChainId.ETHEREUM, '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', 8, 'WBTC', 'Wrapped BTC')
-export const XSUSHI = new Token(
-  ChainId.ETHEREUM,
-  '0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272',
-  18,
-  'xSUSHI',
-  'SushiBar'
-)
 export const LIFT = new Token(ChainId.ETHEREUM, '0xf9209d900f7ad1DC45376a2caA61c78f6dEA53B6', 18, 'LIFT', 'LiftKitchen')
 export const LFBTC = new Token(
   ChainId.ETHEREUM,
@@ -116,20 +102,6 @@ export const LFBTC = new Token(
 )
 export const CVXCRV = new Token(ChainId.ETHEREUM, '0x62B9c7356A2Dc64a1969e19C23e4f579F9810Aa7', 18, 'cvxCRV', 'cvxCRV')
 export const CRV = new Token(ChainId.ETHEREUM, '0xD533a949740bb3306d119CC777fa900bA034cd52', 18, 'CRV', 'Curve')
-export const CRXSUSHI = new Token(
-  ChainId.ETHEREUM,
-  '0x228619CCa194Fbe3Ebeb2f835eC1eA5080DaFbb2',
-  8,
-  'crXSUSHI',
-  'Cream SushiBar'
-)
-export const AXSUSHI = new Token(
-  ChainId.ETHEREUM,
-  '0xF256CC7847E919FAc9B808cC216cAc87CCF2f47a',
-  18,
-  'aXSUSHI',
-  'Aave interest bearing XSUSHI'
-)
 export const DPI = new Token(ChainId.ETHEREUM, '0x1494CA1F11D487c2bBe4543E90080AeBa4BA3C2b', 18, 'DefiPulse', 'DPI')
 export const RAI = new Token(
   ChainId.ETHEREUM,

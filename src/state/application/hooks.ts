@@ -27,3 +27,7 @@ export function useWalletModalToggle(): () => void {
 export function useCryptoCurrencyModalToggle(): () => void {
   return useToggleModal(ApplicationModal.CRYPTO_CURRENCY)
 }
+
+export function useTokenTimedRandomSendContractModalToggle(): () => void {
+  return useToggleModal(ApplicationModal.TOKEN_TIMED_RANDOM_SEND_CONTRACT)
+}

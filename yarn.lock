@@ -1019,10 +1019,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/dm-sans/-/dm-sans-4.5.7.tgz#fcf6b866eeb2cf8b9cf8a6e7756f21e8ed3cfc7f"
   integrity sha512-pYzU78F4HZHMpERjarfOnQZ20XL2thfDXTaZW30CoQgfqgZSSxHDfB6bVrs6jUPrgeAxK5ZuGG9hkpvZJT7SdQ==
 
-"@foxlottery/core-sdk@^1.0.0-canary.94":
-  version "1.0.0-canary.94"
-  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.0.0-canary.94.tgz#61b99644a3db82f84be6c20feb1350548ff0aa35"
-  integrity sha512-DeMSf6JchRT8ozzVkgzXBR+obU+/TzK9DCPxlhuOaOmHafLCdyJ9O3A4CrVRyH0EKLDPGxPVyq9f/8GO4GKWNg==
+"@foxlottery/core-sdk@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.0.3.tgz#8d805bba0e348c7f3d92c5bf19e40742a64822a9"
+  integrity sha512-njXa5IyvB9LWR3lqJ0rD6GGbcwKk2GvjqyujwLE3Way2q4vx762Roc6QEI8NzAQFw7pBlfnQAJJn7paOOqIOTg==
   dependencies:
     "@ethersproject/address" "^5.4.0"
     "@ethersproject/bignumber" "^5.4.0"
@@ -8157,6 +8157,11 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-moment@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-moment/-/react-moment-1.1.2.tgz#a9b157c58ddd226a2f746e5ca43415b24a17b6af"
+  integrity sha512-lfb+shYXI2tXlQrNUpNr05/1D/kzFj8Isbfp89DQrpZk0fs2JIAnLHWETR0hQS9zvtzwLWlVv0wKLffbue5HoA==
 
 react-popper@^2.3.0:
   version "2.3.0"

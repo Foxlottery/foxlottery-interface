@@ -1,4 +1,4 @@
-import { Currency } from '@foxlottery/core-sdk'
+import { Currency, TokenTimedRandomSendContract } from '@foxlottery/core-sdk'
 import { useAppDispatch } from 'app/state/hooks'
 import { useCurrentUserCurrentCurrencyBalance } from 'app/state/wallet/hooks'
 import { useCallback } from 'react'
@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import { useWeb3React } from 'web3-react-core'
 
 import { AppState } from '..'
-import { changeInputValue, updateCryptoCurrency } from './reducer'
+import { changeInputValue, changeTokenTimedRandomSendContract, updateCryptoCurrency } from './reducer'
 
 export function useIsSelectedCryptoCurrency(cryptoCurrency: Currency): boolean {
   const selectedCryptoCurrency = useSelector((state: AppState) => state.lottery.cryptoCurrency)
@@ -54,5 +54,23 @@ export function useButtonDisabled(): boolean {
     !!currentCurrencyBalance &&
     !!inputValue &&
     (currentCurrencyBalance?.toSignificant() as unknown as number) <= inputValue
+  )
+}
+
+export function useTokenTimedRandomSendContract(): TokenTimedRandomSendContract | undefined {
+  return useSelector((state: AppState) => state.lottery.tokenTimedRandomSendContract)
+}
+
+export function useChangeTokenTimedRandomSendContract(): (
+  tokenTimedRandomSendContract?: TokenTimedRandomSendContract
+) => void {
+  const dispatch = useAppDispatch()
+
+  return useCallback(
+    (tokenTimedRandomSendContract?: TokenTimedRandomSendContract) => {
+      dispatch(updateCryptoCurrency(tokenTimedRandomSendContract?.token))
+      dispatch(changeTokenTimedRandomSendContract(tokenTimedRandomSendContract))
+    },
+    [dispatch]
   )
 }
