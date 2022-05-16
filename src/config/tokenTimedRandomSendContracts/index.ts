@@ -1,18 +1,18 @@
-import { ChainId, TokenTimedRandomSendContract } from '@foxlottery/core-sdk'
-import commonContracts from 'app/config/tokenTimedRandomSendContracts/commonContracts'
+import { ChainId } from '@foxlottery/core-sdk'
+import { TokenTimedRandomSendContract } from '@foxlottery/core-sdk'
+import chainTokenTimedRandomSendContractList from 'app/config/tokenTimedRandomSendContracts/chainTokenTimedRandomSendContractList'
 
 type TokenTimedRandomSendContracts = {
   readonly [chainId: number]: TokenTimedRandomSendContract[]
 }
 
 const tokenTimedRandomSendContracts: TokenTimedRandomSendContracts = {
-  [ChainId.ETHEREUM]: commonContracts,
-  [ChainId.ROPSTEN]: commonContracts,
-  [ChainId.BSC]: commonContracts,
-  [ChainId.RINKEBY]: commonContracts,
-  [ChainId.MATIC]: commonContracts,
-  [ChainId.MATIC_TESTNET]: commonContracts,
-  [ChainId.BSC_TESTNET]: commonContracts,
+  [ChainId.ETHEREUM]: chainTokenTimedRandomSendContractList[ChainId.ETHEREUM],
+  [ChainId.ROPSTEN]: chainTokenTimedRandomSendContractList[ChainId.ROPSTEN],
+  [ChainId.BSC]: chainTokenTimedRandomSendContractList[ChainId.BSC],
+  [ChainId.MATIC]: chainTokenTimedRandomSendContractList[ChainId.MATIC],
+  [ChainId.ARBITRUM]: chainTokenTimedRandomSendContractList[ChainId.ARBITRUM],
+  [ChainId.AVALANCHE]: chainTokenTimedRandomSendContractList[ChainId.AVALANCHE],
 }
 
 export default tokenTimedRandomSendContracts

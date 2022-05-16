@@ -6,9 +6,11 @@ import Typography from 'app/components/Typography'
 import { useTokenTimedRandomSendContractModalToggle } from 'app/state/application/hooks'
 import { useTokenTimedRandomSendContract } from 'app/state/lottery/hooks'
 import React, { FC } from 'react'
+import { useWeb3React } from 'web3-react-core'
 
 const SelectTokenTimedRandomSendContractButton: FC = () => {
   const { i18n } = useLingui()
+  const { account } = useWeb3React()
 
   const tokenTimedRandomSendContract = useTokenTimedRandomSendContract()
   const tokenTimedRandomSendContractModalToggle = useTokenTimedRandomSendContractModalToggle()
@@ -29,12 +31,12 @@ const SelectTokenTimedRandomSendContractButton: FC = () => {
         </div>
       </Button>
     </>
-  ) : (
+  ) : account ? (
     <Button onClick={tokenTimedRandomSendContractModalToggle} className="rounded-[14px] bg-white">
       {i18n._(t`Select a Lottery`)}
       <ChevronDownIcon width={18} />
     </Button>
-  )
+  ) : null
 }
 
 export default SelectTokenTimedRandomSendContractButton
