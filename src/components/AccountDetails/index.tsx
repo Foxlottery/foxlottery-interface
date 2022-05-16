@@ -1,7 +1,7 @@
 import Davatar from '@davatar/react'
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
-import CurrentCryptoCurrencyAmount from 'app/components/CurrentCryptoCurrencyAmount'
+import CurrentCryptoCurrencyBalance from 'app/components/CurrentCryptoCurrencyBalance'
 import { HeadlessUiModal } from 'app/components/Modal'
 import { injected, SUPPORTED_WALLETS } from 'app/config/wallets'
 import { getExplorerLink } from 'app/functions/explorer'
@@ -40,10 +40,10 @@ const AccountDetails: FC<AccountDetailsProps> = ({ toggleWalletModal, ENSName })
       .map((k) => SUPPORTED_WALLETS[k].name)[0]
     return (
       <Typography variant="xs" weight={700} className="text-secondary">
-        Connected with {name}
+        {i18n._(t`Connected with ${name}`)}
       </Typography>
     )
-  }, [connector, isMetaMask])
+  }, [connector, isMetaMask, i18n])
 
   return (
     <div className="space-y-3">
@@ -76,7 +76,7 @@ const AccountDetails: FC<AccountDetailsProps> = ({ toggleWalletModal, ENSName })
               <Typography weight={700} variant="sm" className="text-blank">
                 {ENSName ? ENSName : account && shortenAddress(account)}
               </Typography>
-              <CurrentCryptoCurrencyAmount />
+              <CurrentCryptoCurrencyBalance />
             </div>
             <div className="flex items-center gap-2 space-x-3">
               {chainId && account && (

@@ -4,7 +4,7 @@ import React, { FC, ReactNode } from 'react'
 import Dots from '../Dots'
 import Loader from '../Loader'
 
-export type ButtonColor = 'red' | 'blue' | 'pink' | 'purple' | 'gradient' | 'gray'
+export type ButtonColor = 'red' | 'blue' | 'pink' | 'purple' | 'gradient' | 'gray' | 'gradientGreen'
 export type ButtonSize = 'xs' | 'sm' | 'lg' | 'default' | 'none'
 export type ButtonVariant = 'outlined' | 'filled' | 'empty'
 
@@ -32,6 +32,8 @@ const FILLED = {
   gradient:
     '!bg-gradient-to-r from-blue to-pink-600 hover:from-blue/80 hover:to-pink-600/80 focus:from-blue/80 focus:to-pink-600/80 active:from-blue/70 active:to-pink-600/70 focus:border-blue-700',
   gray: 'bg-dark-700',
+  gradientGreen:
+    'text-white bg-gradient-to-r from-green-400 to-green-600 opacity-90 hover:opacity-100 duration-150 disabled:pointer-events-none disabled:opacity-40',
 }
 
 const OUTLINED = {
@@ -99,9 +101,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         disabled={disabled || loading}
         className={classNames(
-          VARIANT[variant]['default'],
           // @ts-ignore TYPE NEEDS FIXING
-          VARIANT[variant][color],
+          VARIANT[variant][color ? color : 'default'],
           // @ts-ignore TYPE NEEDS FIXING
           SIZE[size],
           // @ts-ignore TYPE NEEDS FIXING

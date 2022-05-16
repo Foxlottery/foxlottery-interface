@@ -1,10 +1,8 @@
-import Davatar from '@davatar/react'
 import { NetworkContextName } from 'app/constants'
 import { shortenAddress } from 'app/functions'
 import useENSName from 'app/hooks/useENSName'
 import WalletModal from 'app/modals/WalletModal'
 import { useWalletModalToggle } from 'app/state/application/hooks'
-import Image from 'next/image'
 import React from 'react'
 import { useWeb3React } from 'web3-react-core'
 
@@ -12,7 +10,7 @@ import Typography from '../Typography'
 import Web3Connect from '../Web3Connect'
 
 function Web3WalletStatusInner() {
-  const { account, library } = useWeb3React()
+  const { account } = useWeb3React()
 
   const { ENSName } = useENSName(account ?? undefined)
 
@@ -26,26 +24,9 @@ function Web3WalletStatusInner() {
         onClick={toggleWalletModal}
       >
         <div className="relative flex items-center gap-2 cursor-pointer pointer-events-auto">
-          <Typography weight={700} variant="sm" className="px-2 py-5 font-semibold rounded-full text-inheri">
+          <Typography weight={700} variant="sm" className="px-1 py-3 font-semibold rounded-full text-inheri">
             {ENSName ? ENSName.toUpperCase() : shortenAddress(account)}
           </Typography>
-
-          <div className="flex items-center sm:hidden">
-            <Davatar
-              size={48}
-              address={account}
-              defaultComponent={
-                <Image
-                  src="/images/user.svg"
-                  alt="User Icon"
-                  width={36}
-                  height={36}
-                  className="rounded-full pointer-events-none"
-                />
-              }
-              provider={library}
-            />
-          </div>
         </div>
       </div>
     )

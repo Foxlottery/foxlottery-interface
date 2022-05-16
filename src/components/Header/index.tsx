@@ -2,7 +2,7 @@ import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
-import CurrentCryptoCurrencyAmount from 'app/components/CurrentCryptoCurrencyAmount'
+import CurrentCryptoCurrencyBalance from 'app/components/CurrentCryptoCurrencyBalance'
 import SwitchLanguages from 'app/components/SwitchLanguages'
 import Web3Network from 'app/components/Web3Network'
 import Web3WalletStatus from 'app/components/Web3WalletStatus'
@@ -79,7 +79,10 @@ const Header = () => {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        <Popover.Panel focus className="absolute inset-x-0 top-0 p-2 transition origin-top-right transform md:hidden">
+        <Popover.Panel
+          focus
+          className="absolute inset-x-0 top-0 z-10 p-2 transition origin-top-right transform md:hidden"
+        >
           <div className="bg-white divide-y-2 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-gray-50">
             <div className="px-5 pt-5 pb-6">
               <div className="flex items-center justify-between">
@@ -120,7 +123,7 @@ const Header = () => {
             </div>
             <div className="grid grid-cols-1 px-5 py-5">
               <div className="pl-3">
-                <CurrentCryptoCurrencyAmount />
+                <CurrentCryptoCurrencyBalance />
               </div>
               <Web3WalletStatus />
             </div>

@@ -19,7 +19,7 @@ const config = {
       ja: '日本語',
       lt: 'Lithuanian',
       lv: 'Latvian',
-      nl: 'Dutch; Flemish',
+      nl: 'Dutch',
       pl: 'Polskie',
       pt_pt: 'Portuguese - PORTUGAL',
       pt_br: 'Portuguese - BRAZIL',

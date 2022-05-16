@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const linguiConfig = require('./lingui.config.js')
 const { locales, sourceLocale } = linguiConfig
 const defaultTheme = require('tailwindcss/defaultTheme')

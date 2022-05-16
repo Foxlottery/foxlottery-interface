@@ -24,7 +24,7 @@ const Footer = () => {
                 <h2 className="pl-2 font-semibold tracking-wide">{serviceName}</h2>
               </div>
             </Link>
-            <p className="text-base text-gray-500">{footer.description}</p>
+            <div className="max-w-screen-md text-sm text-gray-500">{footer.description}</div>
             <div className="flex space-x-6">
               {footer.iconLinks.map((iconLink: IconLink) => (
                 <Link key={iconLink.key} href={iconLink.link} passHref>
