@@ -1,6 +1,6 @@
 import { ChainId, NATIVE } from '@foxlottery/core-sdk'
 import { WRAPPED_NATIVE_ONLY } from 'app/config/routing'
-import ChainTokenList from 'app/types/ChainTokenList'
+import ChainCurrencyList from 'app/types/ChainCurrencyList'
 
 import * as ARBITRUM from './tokens/arbitrum'
 import * as AVALANCHE from './tokens/avalanche'
@@ -9,7 +9,7 @@ import * as ETHEREUM from './tokens/ethereum'
 import * as MATIC from './tokens/matic'
 import * as ROPSTEN from './tokens/ropsten'
 
-export const chainTokenList: ChainTokenList = {
+export const chainCurrencyList: ChainCurrencyList = {
   [ChainId.ETHEREUM]: [NATIVE[ChainId.ETHEREUM], ETHEREUM.WBTC, ETHEREUM.USDC, ETHEREUM.USDT, ETHEREUM.DAI],
   [ChainId.ROPSTEN]: [NATIVE[ChainId.ROPSTEN], ROPSTEN.DAI, ROPSTEN.LINK, ROPSTEN.UNI, ROPSTEN.WETH],
   [ChainId.MATIC]: [
@@ -49,4 +49,4 @@ export const chainTokenList: ChainTokenList = {
   ],
 }
 
-export default chainTokenList
+export default chainCurrencyList
