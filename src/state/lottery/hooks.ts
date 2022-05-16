@@ -22,6 +22,7 @@ export function useSelectCryptoCurrency(): (cryptoCurrency: Currency) => void {
   return useCallback(
     (cryptoCurrency: Currency) => {
       dispatch(updateCryptoCurrency(cryptoCurrency))
+      dispatch(changeTokenTimedRandomSendContract(undefined))
     },
     [dispatch]
   )

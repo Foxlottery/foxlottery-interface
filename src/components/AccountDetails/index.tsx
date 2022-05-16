@@ -43,7 +43,7 @@ const AccountDetails: FC<AccountDetailsProps> = ({ toggleWalletModal, ENSName })
         {i18n._(t`Connected with ${name}`)}
       </Typography>
     )
-  }, [connector, isMetaMask])
+  }, [connector, isMetaMask, i18n])
 
   return (
     <div className="space-y-3">

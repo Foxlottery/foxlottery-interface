@@ -88,6 +88,7 @@
     "lodash": "^4.17.21",
     "lottie-react": "^2.2.1",
     "make-plural": "^7.1.0",
+    "moment": "^2.29.3",
     "ms.macro": "^2.0.0",
     "next-seo": "^5.4.0",
     "numeral": "^2.0.6",
