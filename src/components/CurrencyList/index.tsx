@@ -1,6 +1,6 @@
 import { Currency } from '@foxlottery/core-sdk'
 import CurrencyButton from 'app/components/CurrencyButton'
-import chainTokenList from 'app/config/chainTokenList'
+import ChainCurrencyList from 'app/config/chainCurrencyList'
 import { useActiveWeb3React } from 'app/services/web3'
 import { useCryptoCurrencyModalToggle } from 'app/state/application/hooks'
 import { useSelectCryptoCurrency, useSelectedCryptoCurrency } from 'app/state/lottery/hooks'
@@ -16,7 +16,7 @@ const CurrencyList: FC = () => {
     toggleCryptoCurrencyModal()
   }
 
-  const tokens = typeof chainId !== 'undefined' ? chainTokenList[chainId] ?? [] : []
+  const tokens = typeof chainId !== 'undefined' ? ChainCurrencyList[chainId] ?? [] : []
 
   return (
     <div className="flex flex-col gap-3">

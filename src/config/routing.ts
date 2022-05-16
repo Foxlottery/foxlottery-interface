@@ -1,6 +1,5 @@
 // a list of tokens by chain
 import { ChainId, Token, WNATIVE } from '@foxlottery/core-sdk'
-import ChainTokenList from 'app/types/ChainTokenList'
 
 import * as ARBITRUM from './tokens/arbitrum'
 import * as AVALANCHE from './tokens/avalanche'
@@ -18,6 +17,10 @@ import * as OKEX from './tokens/okex'
 import * as PALM from './tokens/palm'
 import * as TELOS from './tokens/telos'
 import * as XDAI from './tokens/xdai'
+
+type ChainTokenList = {
+  readonly [chainId: number]: Token[]
+}
 
 // List of all mirror's assets addresses.
 // Last pulled from : https://whitelist.mirror.finance/eth/tokenlists.json

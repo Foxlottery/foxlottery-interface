@@ -41,6 +41,18 @@ const TokenTimedRandomSendContractModal: FC = () => {
                 }
               )}
             </>
+          ) : chainId && currency && currency.isNative ? (
+            <>
+              {tokenTimedRandomSendContractList[chainId].map(
+                (tokenTimedRandomSendContract: TokenTimedRandomSendContract, key: number) => {
+                  return (
+                    <button key={key} onClick={() => onClick(tokenTimedRandomSendContract)}>
+                      <TokenTimedRandomSendContractCard tokenTimedRandomSendContract={tokenTimedRandomSendContract} />
+                    </button>
+                  )
+                }
+              )}
+            </>
           ) : chainId ? (
             <>
               {tokenTimedRandomSendContracts[chainId].map(

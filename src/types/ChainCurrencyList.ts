@@ -1,7 +1,7 @@
 import { Currency } from '@foxlottery/core-sdk'
 
-type ChainTokenList = {
+type ChainCurrencyList = {
   readonly [chainId: number]: Currency[]
 }
 
-export default ChainTokenList
+export default ChainCurrencyList
