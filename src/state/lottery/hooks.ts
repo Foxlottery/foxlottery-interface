@@ -69,7 +69,7 @@ export function useChangeTokenTimedRandomSendContract(): (
 
   return useCallback(
     (tokenTimedRandomSendContract?: TokenTimedRandomSendContract) => {
-      dispatch(updateCryptoCurrency(tokenTimedRandomSendContract?.token))
+      dispatch(updateCryptoCurrency(tokenTimedRandomSendContract?.currency))
       dispatch(changeTokenTimedRandomSendContract(tokenTimedRandomSendContract))
     },
     [dispatch]

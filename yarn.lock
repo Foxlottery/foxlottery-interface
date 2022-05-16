@@ -1019,10 +1019,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/dm-sans/-/dm-sans-4.5.7.tgz#fcf6b866eeb2cf8b9cf8a6e7756f21e8ed3cfc7f"
   integrity sha512-pYzU78F4HZHMpERjarfOnQZ20XL2thfDXTaZW30CoQgfqgZSSxHDfB6bVrs6jUPrgeAxK5ZuGG9hkpvZJT7SdQ==
 
-"@foxlottery/core-sdk@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.0.3.tgz#8d805bba0e348c7f3d92c5bf19e40742a64822a9"
-  integrity sha512-njXa5IyvB9LWR3lqJ0rD6GGbcwKk2GvjqyujwLE3Way2q4vx762Roc6QEI8NzAQFw7pBlfnQAJJn7paOOqIOTg==
+"@foxlottery/core-sdk@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.0.4.tgz#6c3d4cb9c4c541593dbcb024e5fe117496ff2327"
+  integrity sha512-CskVVTSwb2z/iFaEE5ghrfGvcUo29Ac8d+5j6ZoZxfLr/+Q18oaASpIpCRUDg6gT8ZN1KaeeNO4yGpvfg1Ej0g==
   dependencies:
     "@ethersproject/address" "^5.4.0"
     "@ethersproject/bignumber" "^5.4.0"

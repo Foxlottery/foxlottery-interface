@@ -20,13 +20,13 @@ const TokenTimedRandomSendContractCard = ({ tokenTimedRandomSendContract }: Prop
               <div className="mx-auto">
                 <div className="flex items-center">
                   <CurrencyLogo
-                    currency={tokenTimedRandomSendContract.token}
+                    currency={tokenTimedRandomSendContract.currency}
                     className="!rounded-full overflow-hidden"
                     size={20}
                   />
-                  {tokenTimedRandomSendContract.token.symbol && (
+                  {tokenTimedRandomSendContract.currency.symbol && (
                     <Typography variant="sm" className="!text-base ml-1" weight={700}>
-                      {tokenTimedRandomSendContract.token.symbol}
+                      {tokenTimedRandomSendContract.currency.symbol}
                     </Typography>
                   )}
                 </div>
@@ -109,7 +109,7 @@ const TokenTimedRandomSendContractCard = ({ tokenTimedRandomSendContract }: Prop
                         {i18n._(t`Total Supply`)}
                       </dt>
                       <dd className="order-2 text-xl font-extrabold text-black">
-                        {tokenTimedRandomSendContract.totalSupply} {tokenTimedRandomSendContract.token.symbol}
+                        {tokenTimedRandomSendContract.totalSupply} {tokenTimedRandomSendContract.currency.symbol}
                       </dd>
                     </div>
                     <div className="flex flex-col p-6 text-center md:p-2">
@@ -131,7 +131,7 @@ const TokenTimedRandomSendContractCard = ({ tokenTimedRandomSendContract }: Prop
                         {i18n._(t`First Prize Amount`)}
                       </dt>
                       <dd className="order-2 text-xl font-extrabold text-black">
-                        {tokenTimedRandomSendContract.firstPrizeCount} {tokenTimedRandomSendContract.token.symbol}
+                        {tokenTimedRandomSendContract.firstPrizeCount} {tokenTimedRandomSendContract.currency.symbol}
                       </dd>
                     </div>
                   </dl>

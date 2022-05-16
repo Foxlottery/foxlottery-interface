@@ -1,6 +1,6 @@
 import { TokenTimedRandomSendContract } from '@foxlottery/core-sdk'
+import chainTokenList from 'app/config/chainTokenList'
 import { supportedNetworkChainIds } from 'app/config/networks'
-import { COMMON_BASES } from 'app/config/routing'
 
 const today = new Date()
 const tomorrow = new Date(today)
@@ -14,7 +14,7 @@ const chainTokenTimedRandomSendContractList: ChainTokenTimedRandomSendContractLi
 
 supportedNetworkChainIds.map((chainId) => {
   chainTokenTimedRandomSendContractList[chainId] = []
-  COMMON_BASES[chainId].map((token) => {
+  chainTokenList[chainId].map((token) => {
     const weeklyTokenTimedRandomSendContract = new TokenTimedRandomSendContract(
       token,
       '0x1',
