@@ -6,9 +6,9 @@ import { useWalletModalToggle } from 'app/state/application/hooks'
 import type { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 
-const History: NextPage = () => {
+const Lottery: NextPage = () => {
   const { i18n } = useLingui()
-  const title = i18n._(t`History`)
+  const title = i18n._(t`Lottery`)
   const { account } = useActiveWeb3React()
   const toggleWalletModal = useWalletModalToggle()
 
@@ -30,4 +30,4 @@ const History: NextPage = () => {
   )
 }
 
-export default History
+export default Lottery

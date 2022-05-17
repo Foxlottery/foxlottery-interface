@@ -739,10 +739,19 @@
     "@ethersproject/bytes" "^5.6.0"
     "@ethersproject/properties" "^5.6.0"
 
-"@ethersproject/bignumber@5.6.0", "@ethersproject/bignumber@^5.4.0", "@ethersproject/bignumber@^5.6.0":
+"@ethersproject/bignumber@5.6.0", "@ethersproject/bignumber@^5.6.0":
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/@ethersproject/bignumber/-/bignumber-5.6.0.tgz#116c81b075c57fa765a8f3822648cf718a8a0e26"
   integrity sha512-VziMaXIUHQlHJmkv1dlcd6GY2PmT0khtAqaMctCIDogxkrarMzA9L94KN1NeXqqOfFD6r0sJT3vCTOFSmZ07DA==
+  dependencies:
+    "@ethersproject/bytes" "^5.6.0"
+    "@ethersproject/logger" "^5.6.0"
+    bn.js "^4.11.9"
+
+"@ethersproject/bignumber@^5.4.0":
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/@ethersproject/bignumber/-/bignumber-5.6.1.tgz#d5e0da518eb82ab8d08ca9db501888bbf5f0c8fb"
+  integrity sha512-UtMeZ3GaUuF9sx2u9nPZiPP3ULcAFmXyvynR7oHl/tPrM+vldZh7ocMsoa1PqKYGnQnqUZJoqxZnGN6J0qdipA==
   dependencies:
     "@ethersproject/bytes" "^5.6.0"
     "@ethersproject/logger" "^5.6.0"
@@ -864,10 +873,35 @@
   dependencies:
     "@ethersproject/logger" "^5.6.0"
 
-"@ethersproject/providers@5.6.4", "@ethersproject/providers@^5", "@ethersproject/providers@^5.4.0", "@ethersproject/providers@^5.4.5":
+"@ethersproject/providers@5.6.4", "@ethersproject/providers@^5", "@ethersproject/providers@^5.4.5":
   version "5.6.4"
   resolved "https://registry.yarnpkg.com/@ethersproject/providers/-/providers-5.6.4.tgz#1a49c211b57b0b2703c320819abbbfa35c83dff7"
   integrity sha512-WAdknnaZ52hpHV3qPiJmKx401BLpup47h36Axxgre9zT+doa/4GC/Ne48ICPxTm0BqndpToHjpLP1ZnaxyE+vw==
+  dependencies:
+    "@ethersproject/abstract-provider" "^5.6.0"
+    "@ethersproject/abstract-signer" "^5.6.0"
+    "@ethersproject/address" "^5.6.0"
+    "@ethersproject/basex" "^5.6.0"
+    "@ethersproject/bignumber" "^5.6.0"
+    "@ethersproject/bytes" "^5.6.0"
+    "@ethersproject/constants" "^5.6.0"
+    "@ethersproject/hash" "^5.6.0"
+    "@ethersproject/logger" "^5.6.0"
+    "@ethersproject/networks" "^5.6.0"
+    "@ethersproject/properties" "^5.6.0"
+    "@ethersproject/random" "^5.6.0"
+    "@ethersproject/rlp" "^5.6.0"
+    "@ethersproject/sha2" "^5.6.0"
+    "@ethersproject/strings" "^5.6.0"
+    "@ethersproject/transactions" "^5.6.0"
+    "@ethersproject/web" "^5.6.0"
+    bech32 "1.1.4"
+    ws "7.4.6"
+
+"@ethersproject/providers@^5.4.0":
+  version "5.6.6"
+  resolved "https://registry.yarnpkg.com/@ethersproject/providers/-/providers-5.6.6.tgz#1967149cb4557d253f8c176a44aabda155f228cd"
+  integrity sha512-6X6agj3NeQ4tgnvBMCjHK+CjQbz+Qmn20JTxCYZ/uymrgCEOpJtY9zeRxJIDsSi0DPw8xNAxypj95JMCsapUfA==
   dependencies:
     "@ethersproject/abstract-provider" "^5.6.0"
     "@ethersproject/abstract-signer" "^5.6.0"
@@ -1019,10 +1053,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/dm-sans/-/dm-sans-4.5.7.tgz#fcf6b866eeb2cf8b9cf8a6e7756f21e8ed3cfc7f"
   integrity sha512-pYzU78F4HZHMpERjarfOnQZ20XL2thfDXTaZW30CoQgfqgZSSxHDfB6bVrs6jUPrgeAxK5ZuGG9hkpvZJT7SdQ==
 
-"@foxlottery/core-sdk@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.0.4.tgz#6c3d4cb9c4c541593dbcb024e5fe117496ff2327"
-  integrity sha512-CskVVTSwb2z/iFaEE5ghrfGvcUo29Ac8d+5j6ZoZxfLr/+Q18oaASpIpCRUDg6gT8ZN1KaeeNO4yGpvfg1Ej0g==
+"@foxlottery/core-sdk@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.0.7.tgz#d27be42c4abf6f5b022793b7bc1fad88fee797db"
+  integrity sha512-k/o63QIkZ2nd8+1svj1NJl9Ks1ssy32u5klI8VGPGPhfqog0hwy+I1lQSk7OEve7hSG8k3Yc898wgcRUzMvPRQ==
   dependencies:
     "@ethersproject/address" "^5.4.0"
     "@ethersproject/bignumber" "^5.4.0"
