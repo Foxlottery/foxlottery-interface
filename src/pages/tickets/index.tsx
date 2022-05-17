@@ -16,17 +16,15 @@ const Tickets: NextPage = () => {
   return (
     <>
       <NextSeo title={i18n._(t`${title} | Foxlottery`)} />
-      <div className="my-5">
-        {account ? (
-          <div className="my-5">{<TicketsUI />}</div>
-        ) : (
-          <div className="items-center justify-center my-10">
-            <Button onClick={toggleWalletModal} className="rounded-[14px]" color="gradientGreen" variant="filled">
-              {i18n._(t`Connect to a wallet`)}
-            </Button>
-          </div>
-        )}
-      </div>
+      {account ? (
+        <TicketsUI />
+      ) : (
+        <div className="items-center justify-center my-16">
+          <Button onClick={toggleWalletModal} className="rounded-[14px]" color="gradientGreen" variant="filled">
+            {i18n._(t`Connect to a wallet`)}
+          </Button>
+        </div>
+      )}
     </>
   )
 }
