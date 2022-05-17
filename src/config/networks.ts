@@ -8,7 +8,7 @@ const Goerli = '/images/networks/goerli.jpg'
 const Harmony = '/images/networks/harmonyone.jpg'
 const Heco = '/images/networks/heco.jpg'
 const Kovan = '/images/networks/kovan.jpg'
-const Mainnet = '/images/networks/mainnet.jpg'
+const Ethereum = '/images/networks/ethereum.jpg'
 const Matic = '/images/networks/polygon.jpg'
 const Moonbeam = '/images/networks/moonbeam.jpg'
 const OKEx = '/images/networks/okex.jpg'
@@ -23,7 +23,7 @@ const Fuse = '/images/networks/fuse.jpg'
 const Telos = '/images/networks/telos.jpg'
 
 export const NETWORK_ICON: Record<number, string> = {
-  [ChainId.ETHEREUM]: Mainnet,
+  [ChainId.ETHEREUM]: Ethereum,
   [ChainId.ROPSTEN]: Ropsten,
   [ChainId.RINKEBY]: Rinkeby,
   [ChainId.GÖRLI]: Goerli,
@@ -91,7 +91,6 @@ export const supportedNetworkChainIds = [
   ChainId.ROPSTEN,
   ChainId.MATIC,
   ChainId.ARBITRUM,
-  ChainId.AVALANCHE,
   ChainId.BSC,
 ]
 
