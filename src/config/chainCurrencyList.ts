@@ -3,7 +3,6 @@ import { WRAPPED_NATIVE_ONLY } from 'app/config/routing'
 import ChainCurrencyList from 'app/types/ChainCurrencyList'
 
 import * as ARBITRUM from './tokens/arbitrum'
-import * as AVALANCHE from './tokens/avalanche'
 import * as BSC from './tokens/bsc'
 import * as ETHEREUM from './tokens/ethereum'
 import * as MATIC from './tokens/matic'
@@ -37,15 +36,6 @@ export const chainCurrencyList: ChainCurrencyList = {
     ARBITRUM.WBTC,
     ARBITRUM.USDC,
     ARBITRUM.USDT,
-  ],
-  [ChainId.AVALANCHE]: [
-    NATIVE[ChainId.AVALANCHE],
-    ...WRAPPED_NATIVE_ONLY[ChainId.AVALANCHE],
-    AVALANCHE.WBTC,
-    AVALANCHE.WETH,
-    AVALANCHE.USDC,
-    AVALANCHE.USDT,
-    AVALANCHE.DAI,
   ],
 }
 
