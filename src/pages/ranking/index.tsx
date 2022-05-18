@@ -1,6 +1,7 @@
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import Button from 'app/components/Button'
+import RankingList from 'app/components/RankingList'
 import { useActiveWeb3React } from 'app/services/web3'
 import { useWalletModalToggle } from 'app/state/application/hooks'
 import type { NextPage } from 'next'
@@ -15,9 +16,9 @@ const Ranking: NextPage = () => {
   return (
     <>
       <NextSeo title={i18n._(t`${title} | Foxlottery`)} />
-      <div className="my-5">
+      <div className="w-full my-5">
         {account ? (
-          <h3 className="my-5 text-lg font-medium leading-6 text-gray-900">{title}</h3>
+          <RankingList />
         ) : (
           <div className="items-center justify-center my-10">
             <Button onClick={toggleWalletModal} className="rounded-[14px]" color="gradientGreen" variant="filled">
