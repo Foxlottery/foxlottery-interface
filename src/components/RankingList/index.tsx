@@ -10,7 +10,7 @@ export default function RankingList() {
   const { i18n } = useLingui()
 
   return (
-    <div className="grid grid-cols-1 gap-10">
+    <div className="grid w-full grid-cols-1 gap-10">
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="relative sm:flex sm:items-center">
           <div className="sm:flex-auto">

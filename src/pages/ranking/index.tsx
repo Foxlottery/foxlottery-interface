@@ -16,7 +16,7 @@ const Ranking: NextPage = () => {
   return (
     <>
       <NextSeo title={i18n._(t`${title} | Foxlottery`)} />
-      <div className="w-full my-5">
+      <div className="my-5">
         {account ? (
           <RankingList />
         ) : (
