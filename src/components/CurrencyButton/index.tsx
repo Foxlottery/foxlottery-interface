@@ -9,6 +9,7 @@ interface Props {
   onSelect: (currency: Currency) => void
   currency: Currency
 }
+
 const CurrencyButton: FC<Props> = ({ isSelected, onSelect, currency }) => {
   return (
     <Button
