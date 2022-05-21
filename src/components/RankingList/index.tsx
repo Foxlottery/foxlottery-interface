@@ -4,10 +4,13 @@ import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import rankingLotteries from 'app/config/lotteryRanking'
 import winners from 'app/config/winners'
+import { getExplorerLink } from 'app/functions/explorer'
+import { useActiveWeb3React } from 'app/services/web3'
 import Moment from 'react-moment'
 
 export default function RankingList() {
   const { i18n } = useLingui()
+  const { chainId } = useActiveWeb3React()
 
   return (
     <div className="grid w-full grid-cols-1 gap-10">
@@ -52,7 +55,17 @@ export default function RankingList() {
                         <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                           {winner.amountTransferred} {winner.lottery.symbol}
                         </td>
-                        <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">{winner.address}</td>
+                        <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                          {chainId && winner.address && (
+                            <a
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              href={getExplorerLink(chainId, winner.address, 'address')}
+                            >
+                              {winner.address}
+                            </a>
+                          )}
+                        </td>
                         <td className="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
                           <a href="#" className="text-indigo-600 hover:text-indigo-900">
                             {winner.lottery.name}

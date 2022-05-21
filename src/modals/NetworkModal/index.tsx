@@ -53,13 +53,13 @@ const NetworkModal: FC = () => {
                   key={i}
                   onClick={async () => {
                     console.debug(`Switching to chain ${Number(key)}`, SUPPORTED_NETWORKS[key])
-                    toggleNetworkModal()
                     const params = SUPPORTED_NETWORKS[key]
                     try {
                       if (!library?.provider) {
                         return
                       }
-                      switchToNetwork({ provider: library?.provider, chainId: Number(key) })
+                      await switchToNetwork({ provider: library?.provider, chainId: Number(key) })
+                      toggleNetworkModal()
                     } catch (switchError) {
                       // This error code indicates that the chain has not been added to MetaMask.
                       // @ts-ignore TYPE NEEDS FIXING
