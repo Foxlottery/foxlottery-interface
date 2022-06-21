@@ -55,15 +55,16 @@ const TokenTimedRandomSendContractModal: FC = () => {
             </>
           ) : chainId ? (
             <>
-              {tokenTimedRandomSendContracts[chainId].map(
-                (tokenTimedRandomSendContract: TokenTimedRandomSendContract, key: number) => {
-                  return (
-                    <button key={key} onClick={() => onClick(tokenTimedRandomSendContract)}>
-                      <TokenTimedRandomSendContractCard tokenTimedRandomSendContract={tokenTimedRandomSendContract} />
-                    </button>
-                  )
-                }
-              )}
+              {tokenTimedRandomSendContracts[chainId] &&
+                tokenTimedRandomSendContracts[chainId].map(
+                  (tokenTimedRandomSendContract: TokenTimedRandomSendContract, key: number) => {
+                    return (
+                      <button key={key} onClick={() => onClick(tokenTimedRandomSendContract)}>
+                        <TokenTimedRandomSendContractCard tokenTimedRandomSendContract={tokenTimedRandomSendContract} />
+                      </button>
+                    )
+                  }
+                )}
             </>
           ) : null}
         </div>

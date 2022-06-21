@@ -284,10 +284,7 @@ export const ADDITIONAL_BASES: {
     [BSC.FRAX.address]: [BSC.FXS],
     [BSC.FXS.address]: [BSC.FRAX],
   },
-  [ChainId.AVALANCHE]: {
-    [AVALANCHE.FRAX.address]: [AVALANCHE.FXS],
-    [AVALANCHE.FXS.address]: [AVALANCHE.FRAX],
-  },
+  [ChainId.AVALANCHE]: {},
 }
 
 /**

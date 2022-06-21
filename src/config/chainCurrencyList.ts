@@ -1,42 +1,24 @@
-import { ChainId, NATIVE } from '@foxlottery/core-sdk'
-import { WRAPPED_NATIVE_ONLY } from 'app/config/routing'
+import { ChainId } from '@foxlottery/core-sdk'
 import ChainCurrencyList from 'app/types/ChainCurrencyList'
 
-import * as ARBITRUM from './tokens/arbitrum'
+import * as AVALANCHE from './tokens/avalanche'
 import * as BSC from './tokens/bsc'
+import * as BSC_TESTNET from './tokens/bscTest'
 import * as ETHEREUM from './tokens/ethereum'
+import * as FUJI from './tokens/fuji'
 import * as MATIC from './tokens/matic'
-import * as ROPSTEN from './tokens/ropsten'
+import * as MUMBAI from './tokens/mumbai'
+import * as RINKEBY from './tokens/rinkeby'
 
 export const chainCurrencyList: ChainCurrencyList = {
-  [ChainId.ETHEREUM]: [NATIVE[ChainId.ETHEREUM], ETHEREUM.WBTC, ETHEREUM.USDC, ETHEREUM.USDT, ETHEREUM.DAI],
-  [ChainId.ROPSTEN]: [NATIVE[ChainId.ROPSTEN], ROPSTEN.DAI, ROPSTEN.LINK, ROPSTEN.UNI, ROPSTEN.WETH],
-  [ChainId.MATIC]: [
-    NATIVE[ChainId.MATIC],
-    ...WRAPPED_NATIVE_ONLY[ChainId.MATIC],
-    MATIC.WETH,
-    MATIC.WBTC,
-    MATIC.USDC,
-    MATIC.USDT,
-    MATIC.DAI,
-  ],
-  [ChainId.BSC]: [
-    NATIVE[ChainId.BSC],
-    ...WRAPPED_NATIVE_ONLY[ChainId.BSC],
-    BSC.WETH,
-    BSC.BTCB,
-    BSC.DAI,
-    BSC.USDC,
-    BSC.USDT,
-    BSC.USD,
-  ],
-  [ChainId.ARBITRUM]: [
-    NATIVE[ChainId.ARBITRUM],
-    ...WRAPPED_NATIVE_ONLY[ChainId.ARBITRUM],
-    ARBITRUM.WBTC,
-    ARBITRUM.USDC,
-    ARBITRUM.USDT,
-  ],
+  [ChainId.ETHEREUM]: [ETHEREUM.USDC, ETHEREUM.USDT, ETHEREUM.DAI],
+  [ChainId.MATIC]: [MATIC.USDC, MATIC.USDT, MATIC.DAI],
+  [ChainId.BSC]: [BSC.DAI, BSC.USDC, BSC.USDT, BSC.USD],
+  [ChainId.AVALANCHE]: [AVALANCHE.DAI, AVALANCHE.USDC, AVALANCHE.USDT],
+  [ChainId.RINKEBY]: [RINKEBY.DAI, RINKEBY.USDT, RINKEBY.USDC],
+  [ChainId.MATIC_TESTNET]: [MUMBAI.DAI, MUMBAI.USDC],
+  [ChainId.BSC_TESTNET]: [BSC_TESTNET.DAI, BSC_TESTNET.USD, BSC_TESTNET.USDT],
+  [ChainId.AVALANCHE_TESTNET]: [FUJI.USDT],
 }
 
 export default chainCurrencyList

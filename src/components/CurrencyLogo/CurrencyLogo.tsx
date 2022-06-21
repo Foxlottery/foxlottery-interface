@@ -25,18 +25,16 @@ const BLOCKCHAIN = {
   [ChainId.AVALANCHE]: 'avalanche',
   [ChainId.MOONBEAM]: 'moonbeam',
   [ChainId.HARDHAT]: 'hardhat',
+  [ChainId.RINKEBY]: 'rinkeby',
+  [ChainId.MATIC_TESTNET]: 'mumbai',
+  [ChainId.BSC_TESTNET]: 'bscTest',
 }
 
-export const getCurrencyLogoUrls = (currency: Currency): string[] => {
-  const urls: string[] = []
-
+export const getCurrencyLogoUrl = (currency: Currency): string | undefined => {
   if (currency.chainId in BLOCKCHAIN) {
-    urls.push(
-      // @ts-ignore TYPE NEEDS FIXING
-      `/images/blockchains/${BLOCKCHAIN[currency.chainId]}/assets/${currency.wrapped.address}/logo.png`
-    )
+    // @ts-ignore TYPE NEEDS FIXING
+    return `/images/blockchains/${BLOCKCHAIN[currency.chainId]}/assets/${currency.wrapped.address}/logo.png`
   }
-  return urls
 }
 
 const AvalancheLogo = '/images/token/avax.jpg'
@@ -107,7 +105,11 @@ const CurrencyLogo: FunctionComponent<CurrencyLogoProps> = ({ currency, size = '
     }
 
     if (currency?.isToken) {
-      const defaultUrls = [...getCurrencyLogoUrls(currency)]
+      const url = getCurrencyLogoUrl(currency)
+      const defaultUrls: string[] = []
+      if (url) {
+        defaultUrls.push(url)
+      }
 
       if (currency instanceof WrappedTokenInfo) {
         return [...uriLocations, ...defaultUrls, UNKNOWN_ICON]

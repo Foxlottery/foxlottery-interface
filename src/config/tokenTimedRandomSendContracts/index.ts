@@ -8,11 +8,13 @@ type TokenTimedRandomSendContracts = {
 
 const tokenTimedRandomSendContracts: TokenTimedRandomSendContracts = {
   [ChainId.ETHEREUM]: chainTokenTimedRandomSendContractList[ChainId.ETHEREUM],
-  [ChainId.ROPSTEN]: chainTokenTimedRandomSendContractList[ChainId.ROPSTEN],
   [ChainId.BSC]: chainTokenTimedRandomSendContractList[ChainId.BSC],
   [ChainId.MATIC]: chainTokenTimedRandomSendContractList[ChainId.MATIC],
-  [ChainId.ARBITRUM]: chainTokenTimedRandomSendContractList[ChainId.ARBITRUM],
   [ChainId.AVALANCHE]: chainTokenTimedRandomSendContractList[ChainId.AVALANCHE],
+  [ChainId.RINKEBY]: chainTokenTimedRandomSendContractList[ChainId.RINKEBY],
+  [ChainId.MATIC_TESTNET]: chainTokenTimedRandomSendContractList[ChainId.MATIC_TESTNET],
+  [ChainId.BSC_TESTNET]: chainTokenTimedRandomSendContractList[ChainId.BSC_TESTNET],
+  [ChainId.AVALANCHE_TESTNET]: chainTokenTimedRandomSendContractList[ChainId.AVALANCHE_TESTNET],
 }
 
 export default tokenTimedRandomSendContracts

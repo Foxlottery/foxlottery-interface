@@ -63,7 +63,7 @@ export const NETWORK_LABEL: Record<number, string> = {
   [ChainId.FANTOM]: 'Fantom',
   [ChainId.FANTOM_TESTNET]: 'Fantom Testnet',
   [ChainId.MATIC]: 'Polygon',
-  [ChainId.MATIC_TESTNET]: 'Polygon Testnet',
+  [ChainId.MATIC_TESTNET]: 'Mumbai',
   [ChainId.XDAI]: 'Gnosis',
   [ChainId.ARBITRUM]: 'Arbitrum',
   [ChainId.ARBITRUM_TESTNET]: 'Arbitrum Testnet',
@@ -71,7 +71,7 @@ export const NETWORK_LABEL: Record<number, string> = {
   [ChainId.BSC_TESTNET]: 'BSC Testnet',
   [ChainId.MOONBEAM_TESTNET]: 'Moonbase',
   [ChainId.AVALANCHE]: 'Avalanche',
-  [ChainId.AVALANCHE_TESTNET]: 'Fuji',
+  [ChainId.AVALANCHE_TESTNET]: 'Avalanche Fuji',
   [ChainId.HECO]: 'HECO',
   [ChainId.HECO_TESTNET]: 'HECO Testnet',
   [ChainId.HARMONY]: 'Harmony',
@@ -88,10 +88,13 @@ export const NETWORK_LABEL: Record<number, string> = {
 
 export const supportedNetworkChainIds = [
   ChainId.ETHEREUM,
-  ChainId.ROPSTEN,
   ChainId.MATIC,
-  ChainId.ARBITRUM,
   ChainId.BSC,
+  ChainId.AVALANCHE,
+  ChainId.RINKEBY,
+  ChainId.MATIC_TESTNET,
+  ChainId.BSC_TESTNET,
+  ChainId.AVALANCHE_TESTNET,
 ]
 
 export const SUPPORTED_NETWORKS: Record<
@@ -115,15 +118,6 @@ export const SUPPORTED_NETWORKS: Record<
       decimals: 18,
     },
   },
-  [ChainId.ROPSTEN]: {
-    chainId: '0x3',
-    chainName: 'Ropsten',
-    nativeCurrency: {
-      name: 'Ethereum',
-      symbol: 'ETH',
-      decimals: 18,
-    },
-  },
   [ChainId.RINKEBY]: {
     chainId: '0x4',
     chainName: 'Rinkeby',
@@ -133,36 +127,18 @@ export const SUPPORTED_NETWORKS: Record<
       decimals: 18,
     },
   },
-  [ChainId.GÖRLI]: {
-    chainId: '0x5',
-    chainName: 'Görli',
-    nativeCurrency: {
-      name: 'Ethereum',
-      symbol: 'ETH',
-      decimals: 18,
-    },
-  },
-  [ChainId.KOVAN]: {
-    chainId: '0x2A',
-    chainName: 'Kovan',
-    nativeCurrency: {
-      name: 'Ethereum',
-      symbol: 'ETH',
-      decimals: 18,
-    },
-  },
-  [ChainId.FANTOM]: {
-    chainId: '0xfa',
-    chainName: 'Fantom',
-    nativeCurrency: {
-      name: 'Fantom',
-      symbol: 'FTM',
-      decimals: 18,
-    },
-  },
   [ChainId.BSC]: {
     chainId: '0x38',
     chainName: 'Binance Smart Chain',
+    nativeCurrency: {
+      name: 'Binance Coin',
+      symbol: 'BNB',
+      decimals: 18,
+    },
+  },
+  [ChainId.BSC_TESTNET]: {
+    chainId: '0x61',
+    chainName: 'Binance Smart Chain Test',
     nativeCurrency: {
       name: 'Binance Coin',
       symbol: 'BNB',
@@ -178,30 +154,12 @@ export const SUPPORTED_NETWORKS: Record<
       decimals: 18,
     },
   },
-  [ChainId.HECO]: {
-    chainId: '0x80',
-    chainName: 'Heco',
+  [ChainId.MATIC_TESTNET]: {
+    chainId: '0x13881',
+    chainName: 'Mumbai',
     nativeCurrency: {
-      name: 'Heco Token',
-      symbol: 'HT',
-      decimals: 18,
-    },
-  },
-  [ChainId.XDAI]: {
-    chainId: '0x64',
-    chainName: 'xDai',
-    nativeCurrency: {
-      name: 'xDai Token',
-      symbol: 'xDai',
-      decimals: 18,
-    },
-  },
-  [ChainId.HARMONY]: {
-    chainId: '0x63564C40',
-    chainName: 'Harmony',
-    nativeCurrency: {
-      name: 'One Token',
-      symbol: 'ONE',
+      name: 'MATIC',
+      symbol: 'MATIC',
       decimals: 18,
     },
   },
@@ -214,75 +172,12 @@ export const SUPPORTED_NETWORKS: Record<
       decimals: 18,
     },
   },
-  [ChainId.OKEX]: {
-    chainId: '0x42',
-    chainName: 'OKEx',
+  [ChainId.AVALANCHE_TESTNET]: {
+    chainId: '0xA869',
+    chainName: 'Avalanche Fuji',
     nativeCurrency: {
-      name: 'OKEx Token',
-      symbol: 'OKT',
-      decimals: 18,
-    },
-  },
-  [ChainId.ARBITRUM]: {
-    chainId: '0xA4B1',
-    chainName: 'Arbitrum',
-    nativeCurrency: {
-      name: 'Ethereum',
-      symbol: 'ETH',
-      decimals: 18,
-    },
-  },
-  [ChainId.CELO]: {
-    chainId: '0xA4EC',
-    chainName: 'Celo',
-    nativeCurrency: {
-      name: 'Celo',
-      symbol: 'CELO',
-      decimals: 18,
-    },
-  },
-  [ChainId.MOONRIVER]: {
-    chainId: '0x505',
-    chainName: 'Moonriver',
-    nativeCurrency: {
-      name: 'Moonriver',
-      symbol: 'MOVR',
-      decimals: 18,
-    },
-  },
-  [ChainId.FUSE]: {
-    chainId: '0x7A',
-    chainName: 'Fuse',
-    nativeCurrency: {
-      name: 'Fuse',
-      symbol: 'FUSE',
-      decimals: 18,
-    },
-  },
-  [ChainId.TELOS]: {
-    chainId: '0x28',
-    chainName: 'Telos',
-    nativeCurrency: {
-      name: 'Telos',
-      symbol: 'TLOS',
-      decimals: 18,
-    },
-  },
-  [ChainId.PALM]: {
-    chainId: '0x2A15C308D',
-    chainName: 'Palm',
-    nativeCurrency: {
-      name: 'Palm',
-      symbol: 'PALM',
-      decimals: 18,
-    },
-  },
-  [ChainId.MOONBEAM]: {
-    chainId: '0x504',
-    chainName: 'Moonbeam',
-    nativeCurrency: {
-      name: 'Glimmer',
-      symbol: 'GLMR',
+      name: 'Avalanche Token',
+      symbol: 'AVAX',
       decimals: 18,
     },
   },
