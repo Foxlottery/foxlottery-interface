@@ -10,6 +10,11 @@ export const STABLECOIN_AMOUNT_OUT: { [chainId: number]: CurrencyAmount<Erc20Cur
   [ChainId.MATIC]: CurrencyAmount.fromRawAmount(USD[ChainId.MATIC], 100_000e6),
   [ChainId.BSC]: CurrencyAmount.fromRawAmount(USD[ChainId.BSC], 100_000e18),
   [ChainId.AVALANCHE]: CurrencyAmount.fromRawAmount(USD[ChainId.AVALANCHE], 100_000e6),
+  [ChainId.RINKEBY]: CurrencyAmount.fromRawAmount(USD[ChainId.RINKEBY], 100_000e18),
+  [ChainId.GÖRLI]: CurrencyAmount.fromRawAmount(USD[ChainId.GÖRLI], 100_000e18),
+  [ChainId.MATIC_TESTNET]: CurrencyAmount.fromRawAmount(USD[ChainId.MATIC_TESTNET], 100_000e18),
+  [ChainId.BSC_TESTNET]: CurrencyAmount.fromRawAmount(USD[ChainId.BSC_TESTNET], 100_000e18),
+  [ChainId.AVALANCHE_TESTNET]: CurrencyAmount.fromRawAmount(USD[ChainId.AVALANCHE_TESTNET], 100_000e18),
 }
 
 /**

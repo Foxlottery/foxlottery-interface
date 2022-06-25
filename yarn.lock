@@ -1093,10 +1093,10 @@
   dependencies:
     prop-types "^15.8.1"
 
-"@foxlottery/core-sdk@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.1.0.tgz#3439e86e6d6e92f3fbf545e7052581059cae97a8"
-  integrity sha512-WdGGr+E4qNRkQsJe9EJztMsV3gQINxyEmyeJNgb5erB0kQSWtnFvUWeCMpzkllcHnc0W5PiA/ycHs4HOcMsOiw==
+"@foxlottery/core-sdk@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.1.2.tgz#1aece6f8a1db5e179a8c565006dba32b3c8418f8"
+  integrity sha512-K/VS48HKCMxsMzPTelIkCwD1Vmdj5pzWnTqmjrtaJ1FnTQ0fj1c79sg3oQiNYmOiQR5KnqE/QtDI7WPIYDfAxw==
   dependencies:
     "@ethersproject/address" "^5.4.0"
     "@ethersproject/bignumber" "^5.4.0"
@@ -2316,11 +2316,6 @@
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@uniswap/redux-multicall/-/redux-multicall-1.1.1.tgz#095285a9f9951d92ca0f8785bc4d2270676c309c"
   integrity sha512-sXX2pAbxJj1OrErSc7zMEFo7j1EXqTBbllYuUDEWCZ/A12sK/4RXgXW2+zSoXOHCN6djyVUc3FmEt0v3x2jLSw==
-
-"@uniswap/token-lists@^1.0.0-beta.28":
-  version "1.0.0-beta.28"
-  resolved "https://registry.yarnpkg.com/@uniswap/token-lists/-/token-lists-1.0.0-beta.28.tgz#76bb6ec25e76ae6bece9efc11b9b68079b2b9402"
-  integrity sha512-MmVeoOd/HlZYOn5NT2mlDoOUYjnZb+3V7aCD5/YwSgsqeDRXZmKfKHafEEhiZoMvXuZdqSBg4L/ythvzAf9cwA==
 
 "@walletconnect/browser-utils@^1.7.8":
   version "1.7.8"

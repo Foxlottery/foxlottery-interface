@@ -53,13 +53,13 @@ export function useErc20CurrencyBalancesWithLoadingIndicator(
   address?: string,
   erc20Currencies?: (Erc20Currency | undefined)[]
 ): [{ [currencyAddress: string]: CurrencyAmount<Erc20Currency> | undefined }, boolean] {
-  const validatedErc20Currencys: Erc20Currency[] = useMemo(
+  const validatedErc20Currencies: Erc20Currency[] = useMemo(
     () => erc20Currencies?.filter((t?: Erc20Currency): t is Erc20Currency => isAddress(t?.address) !== false) ?? [],
     [erc20Currencies]
   )
   const validatedErc20CurrencyAddresses = useMemo(
-    () => validatedErc20Currencys.map((vt) => vt.address),
-    [validatedErc20Currencys]
+    () => validatedErc20Currencies.map((vt) => vt.address),
+    [validatedErc20Currencies]
   )
 
   const balances = useMultipleContractSingleData(
@@ -74,8 +74,8 @@ export function useErc20CurrencyBalancesWithLoadingIndicator(
 
   return useMemo(
     () => [
-      address && validatedErc20Currencys.length > 0
-        ? validatedErc20Currencys.reduce<{ [currencyAddress: string]: CurrencyAmount<Erc20Currency> | undefined }>(
+      address && validatedErc20Currencies.length > 0
+        ? validatedErc20Currencies.reduce<{ [currencyAddress: string]: CurrencyAmount<Erc20Currency> | undefined }>(
             (memo, erc20Currency, i) => {
               const value = balances?.[i]?.result?.[0]
               const amount = value ? JSBI.BigInt(value.toString()) : undefined
@@ -89,7 +89,7 @@ export function useErc20CurrencyBalancesWithLoadingIndicator(
         : {},
       anyLoading,
     ],
-    [address, validatedErc20Currencys, anyLoading, balances]
+    [address, validatedErc20Currencies, anyLoading, balances]
   )
 }
 
