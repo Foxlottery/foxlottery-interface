@@ -32,8 +32,8 @@ export function useContract<T extends Contract = Contract>(
   }, [addressOrAddressMap, ABI, library, chainId, withSignerIfPossible, account]) as T
 }
 
-export function useTokenContract(tokenAddress?: string, withSignerIfPossible?: boolean): Contract | null {
-  return useContract(tokenAddress, ERC20_ABI, withSignerIfPossible)
+export function useErc20Contract(currencyAddress?: string, withSignerIfPossible?: boolean): Contract | null {
+  return useContract(currencyAddress, ERC20_ABI, withSignerIfPossible)
 }
 
 export function useENSRegistrarContract(withSignerIfPossible?: boolean): Contract | null {
@@ -45,8 +45,8 @@ export function useENSResolverContract(address: string | undefined, withSignerIf
   return useContract(address, ENS_PUBLIC_RESOLVER_ABI, withSignerIfPossible)
 }
 
-export function useBytes32TokenContract(tokenAddress?: string, withSignerIfPossible?: boolean): Contract | null {
-  return useContract(tokenAddress, ERC20_BYTES32_ABI, withSignerIfPossible)
+export function useBytes32Erc20Contract(currencyAddress?: string, withSignerIfPossible?: boolean): Contract | null {
+  return useContract(currencyAddress, ERC20_BYTES32_ABI, withSignerIfPossible)
 }
 
 const MULTICALL_ADDRESS = {

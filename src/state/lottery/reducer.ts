@@ -1,14 +1,14 @@
-import { Currency, Lottery } from '@foxlottery/core-sdk'
+import { Erc20Currency, Lottery } from '@foxlottery/core-sdk'
 import { createSlice } from '@reduxjs/toolkit'
 
 export interface LotteryState {
-  cryptoCurrency?: Currency
+  erc20Currency?: Erc20Currency
   inputValue?: number
   lottery?: Lottery
 }
 
 const initialState: LotteryState = {
-  cryptoCurrency: undefined,
+  erc20Currency: undefined,
   inputValue: undefined,
   lottery: undefined,
 }
@@ -17,8 +17,8 @@ const slice = createSlice({
   name: 'lottery',
   initialState,
   reducers: {
-    updateCryptoCurrency(state, action) {
-      state.cryptoCurrency = action.payload
+    updateErc20Currency(state, action) {
+      state.erc20Currency = action.payload
     },
     changeInputValue(state, action) {
       state.inputValue = action.payload
@@ -29,5 +29,5 @@ const slice = createSlice({
   },
 })
 
-export const { updateCryptoCurrency, changeInputValue, changeLottery } = slice.actions
+export const { updateErc20Currency, changeInputValue, changeLottery } = slice.actions
 export default slice.reducer

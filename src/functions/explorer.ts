@@ -9,72 +9,7 @@ const explorers = {
         return `${link}/${type}/${data}`
     }
   },
-
   blockscout: (link: string, data: string, type: 'transaction' | 'token' | 'address' | 'block') => {
-    switch (type) {
-      case 'transaction':
-        return `${link}/tx/${data}`
-      case 'token':
-        return `${link}/tokens/${data}`
-      default:
-        return `${link}/${type}/${data}`
-    }
-  },
-
-  harmony: (link: string, data: string, type: 'transaction' | 'token' | 'address' | 'block') => {
-    switch (type) {
-      case 'transaction':
-        return `${link}/tx/${data}`
-      case 'token':
-        return `${link}/address/${data}`
-      default:
-        return `${link}/${type}/${data}`
-    }
-  },
-
-  okex: (link: string, data: string, type: 'transaction' | 'token' | 'address' | 'block') => {
-    switch (type) {
-      case 'transaction':
-        return `${link}/tx/${data}`
-      case 'token':
-        return `${link}/tokenAddr/${data}`
-      default:
-        return `${link}/${type}/${data}`
-    }
-  },
-  moonriver: (link: string, data: string, type: 'transaction' | 'token' | 'address' | 'block') => {
-    switch (type) {
-      case 'transaction':
-        return `${link}/tx/${data}`
-      case 'token':
-        return `${link}/tokens/${data}`
-      default:
-        return `${link}/${type}/${data}`
-    }
-  },
-  fuse: (link: string, data: string, type: 'transaction' | 'token' | 'address' | 'block') => {
-    switch (type) {
-      case 'transaction':
-        return `${link}/tx/${data}`
-      case 'token':
-        return `${link}/tokens/${data}`
-      default:
-        return `${link}/${type}/${data}`
-    }
-  },
-  telos: (link: string, data: string, type: 'transaction' | 'token' | 'address' | 'block') => {
-    switch (type) {
-      case 'transaction':
-        return `${link}/transaction/${data}`
-      case 'token':
-        return `${link}/address/${data}`
-      case 'address':
-        return `${link}/address/${data}`
-      default:
-        return `${link}/${type}/${data}`
-    }
-  },
-  moonbeam: (link: string, data: string, type: 'transaction' | 'token' | 'address' | 'block') => {
     switch (type) {
       case 'transaction':
         return `${link}/tx/${data}`
@@ -127,7 +62,7 @@ const chains: ChainObject = {
   },
   [ChainId.AVALANCHE_TESTNET]: {
     link: 'https://cchain.explorer.avax-test.network',
-    builder: explorers.etherscan,
+    builder: explorers.blockscout,
   },
 }
 

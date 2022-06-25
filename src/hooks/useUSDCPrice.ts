@@ -1,11 +1,11 @@
-import { ChainId, Currency, CurrencyAmount, Price, Token, USD } from '@foxlottery/core-sdk'
+import { ChainId, Currency, CurrencyAmount, Erc20Currency, Price, USD } from '@foxlottery/core-sdk'
 import { useMemo } from 'react'
 
 import { useActiveWeb3React } from '../services/web3'
 
 // StableCoin amounts used when calculating spot price for a given currency.
 // The amount is large enough to filter low liquidity pairs.
-export const STABLECOIN_AMOUNT_OUT: { [chainId: number]: CurrencyAmount<Token> } = {
+export const STABLECOIN_AMOUNT_OUT: { [chainId: number]: CurrencyAmount<Erc20Currency> } = {
   [ChainId.ETHEREUM]: CurrencyAmount.fromRawAmount(USD[ChainId.ETHEREUM], 100_000e6),
   [ChainId.MATIC]: CurrencyAmount.fromRawAmount(USD[ChainId.MATIC], 100_000e6),
   [ChainId.BSC]: CurrencyAmount.fromRawAmount(USD[ChainId.BSC], 100_000e18),
@@ -16,7 +16,7 @@ export const STABLECOIN_AMOUNT_OUT: { [chainId: number]: CurrencyAmount<Token> }
  * Returns the price in USDC of the input currency
  * @param currency currency to compute the USDC price of
  */
-export default function useUSDCPrice(currency?: Currency): Price<Currency, Token> | undefined {
+export default function useUSDCPrice(currency?: Currency): Price<Currency, Erc20Currency> | undefined {
   const { chainId } = useActiveWeb3React()
 
   const amountOut = chainId ? STABLECOIN_AMOUNT_OUT[chainId] : undefined
@@ -32,8 +32,8 @@ export default function useUSDCPrice(currency?: Currency): Price<Currency, Token
       return new Price(stablecoin, stablecoin, '1', '1')
     }
 
-    // const prices = calcTokenPrices(allowedPools, stablecoin)
-    // return prices[(currency as Token).address]
+    // const prices = calcErc20Prices(allowedPools, stablecoin)
+    // return prices[(currency as Erc20).address]
 
     return undefined
   }, [currency, stablecoin])

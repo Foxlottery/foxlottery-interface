@@ -5,7 +5,7 @@ import Image from '../Image'
 
 export const UNKNOWN_ICON = '/images/unknown.png'
 
-const BAD_SRCS: { [tokenAddress: string]: true } = {}
+const BAD_SRCS: { [currencyAddress: string]: true } = {}
 
 interface LogoProps {
   srcs: string[]

@@ -3,8 +3,8 @@ export {
   useCurrencyBalances,
   useCurrentUserCurrencyBalance,
   useCurrentUserCurrentCurrencyBalance,
+  useErc20CurrencyBalance,
+  useErc20CurrencyBalances,
+  useErc20CurrencyBalancesWithLoadingIndicator,
   useNativeCurrencyBalances,
-  useTokenBalance,
-  useTokenBalances,
-  useTokenBalancesWithLoadingIndicator,
 } from 'lib/hooks/useCurrencyBalance'
