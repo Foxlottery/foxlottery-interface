@@ -20,7 +20,7 @@ const Ticket: NextPage = () => {
     title: i18n._(t`Ticket Information`),
     items: [
       { key: i18n._(t`Ticket address`), value: sampleTicket.address },
-      { key: i18n._(t`Lottery`), value: sampleTicket.tokenTimedRandomSendContract.name },
+      { key: i18n._(t`Lottery`), value: sampleTicket.lottery.name },
       { key: i18n._(t`Winning percentage`), value: '0.001%' },
       { key: i18n._(t`Status`), value: i18n._(t`Active`) },
       {

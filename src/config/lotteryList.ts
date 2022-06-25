@@ -1,0 +1,44 @@
+import { Lottery } from '@foxlottery/core-sdk'
+import chainTokenList from 'app/config/chainTokenList'
+import { supportedNetworkChainIds } from 'app/config/networks'
+import LotteryList from 'app/types/LotteryList'
+
+const today = new Date()
+const tomorrow = new Date(today)
+tomorrow.setDate(tomorrow.getDate() + 1)
+
+const lotteryList: LotteryList = {}
+
+supportedNetworkChainIds.map((chainId) => {
+  chainTokenList[chainId].map((token) => {
+    const weeklyLottery = new Lottery(
+      token,
+      '0x1',
+      'Weekly Lottery',
+      'WL',
+      86400 * 7,
+      tomorrow.getTime() / 1000,
+      1,
+      165260,
+      18 * 10 * 26,
+      10 * 25
+    )
+
+    const monthlyLottery = new Lottery(
+      token,
+      '0x1',
+      'Monthly Lottery',
+      'ML',
+      86400 * 7,
+      tomorrow.getTime() / 1000,
+      1,
+      165260,
+      18 * 10 * 26,
+      10 * 25
+    )
+
+    lotteryList[token.address] = [weeklyLottery, monthlyLottery]
+  })
+})
+
+export default lotteryList

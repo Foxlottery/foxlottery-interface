@@ -1093,10 +1093,10 @@
   dependencies:
     prop-types "^15.8.1"
 
-"@foxlottery/core-sdk@^1.0.9":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.0.9.tgz#d3c2210fa9640c8fa917376206dd45960610c2e7"
-  integrity sha512-TUZ+CsWjh/5bYalUgrXzGqoP37XYmBKSyho0gob8vwsJU9kk4m80g34rkHL71VBedy+zOemra/T9f0HjPJ1W3w==
+"@foxlottery/core-sdk@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.1.0.tgz#3439e86e6d6e92f3fbf545e7052581059cae97a8"
+  integrity sha512-WdGGr+E4qNRkQsJe9EJztMsV3gQINxyEmyeJNgb5erB0kQSWtnFvUWeCMpzkllcHnc0W5PiA/ycHs4HOcMsOiw==
   dependencies:
     "@ethersproject/address" "^5.4.0"
     "@ethersproject/bignumber" "^5.4.0"

@@ -3,9 +3,6 @@ import { ChainId } from '@foxlottery/core-sdk'
 import ms from 'ms.macro'
 
 const NETWORK_POLLING_INTERVALS: { [chainId: number]: number } = {
-  [ChainId.ARBITRUM]: ms`1s`,
-  [ChainId.ARBITRUM_TESTNET]: ms`1s`,
-  [ChainId.HARMONY]: ms`1s`,
   [ChainId.MATIC]: ms`1s`,
 }
 

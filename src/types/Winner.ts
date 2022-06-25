@@ -1,10 +1,10 @@
-import { TokenTimedRandomSendContract } from '@foxlottery/core-sdk'
+import { Lottery } from '@foxlottery/core-sdk'
 
 type Winner = {
   rank: number
   address: string
   amountTransferred: number
-  lottery: TokenTimedRandomSendContract
+  lottery: Lottery
 }
 
 export default Winner

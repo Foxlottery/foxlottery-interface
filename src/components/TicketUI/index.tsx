@@ -9,8 +9,8 @@ interface Props {
 }
 
 const TicketUI: FC<Props> = ({ ticket }) => {
-  const tokenTimedRandomSendContract = ticket.tokenTimedRandomSendContract
-  const currency = tokenTimedRandomSendContract.currency
+  const lottery = ticket.lottery
+  const currency = lottery.currency
   return (
     <Link href={`/ticket?address=${ticket.address}`} passHref>
       <div className="relative max-w-screen-sm m-auto text-white transition-transform transform bg-red-100 shadow-2xl cursor-pointer h-52 w-80 sm:w-96 rounded-xl hover:scale-105">
@@ -32,8 +32,8 @@ const TicketUI: FC<Props> = ({ ticket }) => {
         {/* { ticket body content} */}
         <div className="absolute w-full px-5 top-5">
           <div className="flex gap-2">
-            <p className="text-sm text-gray-50">{tokenTimedRandomSendContract.symbol}</p>
-            <h3 className="font-semibold">{tokenTimedRandomSendContract.name}</h3>
+            <p className="text-sm text-gray-50">{lottery.symbol}</p>
+            <h3 className="font-semibold">{lottery.name}</h3>
           </div>
           <div className="pt-3 text-sm">
             <p className="font-light text-gray-50">Tickets Number</p>
@@ -50,7 +50,7 @@ const TicketUI: FC<Props> = ({ ticket }) => {
             <p className="font-light text-gray-50">Close at</p>
             <p className="font-medium">
               <Moment format="lll" unix>
-                {tokenTimedRandomSendContract.closeTimestamp}
+                {lottery.closeTimestamp}
               </Moment>
             </p>
           </div>
