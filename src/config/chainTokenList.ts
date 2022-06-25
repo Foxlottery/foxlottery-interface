@@ -1,5 +1,4 @@
-import { ChainId } from '@foxlottery/core-sdk'
-import ChainCurrencyList from 'app/types/ChainCurrencyList'
+import { ChainId, ChainTokenList } from '@foxlottery/core-sdk'
 
 import * as AVALANCHE from './tokens/avalanche'
 import * as BSC from './tokens/bsc'
@@ -10,7 +9,7 @@ import * as MATIC from './tokens/matic'
 import * as MUMBAI from './tokens/mumbai'
 import * as RINKEBY from './tokens/rinkeby'
 
-export const chainCurrencyList: ChainCurrencyList = {
+export const chainTokenList: ChainTokenList = {
   [ChainId.ETHEREUM]: [ETHEREUM.USDC, ETHEREUM.USDT, ETHEREUM.DAI],
   [ChainId.MATIC]: [MATIC.USDC, MATIC.USDT, MATIC.DAI],
   [ChainId.BSC]: [BSC.DAI, BSC.USDC, BSC.USDT, BSC.USD],
@@ -21,4 +20,4 @@ export const chainCurrencyList: ChainCurrencyList = {
   [ChainId.AVALANCHE_TESTNET]: [FUJI.USDT],
 }
 
-export default chainCurrencyList
+export default chainTokenList
