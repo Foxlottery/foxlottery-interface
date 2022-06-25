@@ -9,7 +9,7 @@ import { useActiveWeb3React } from 'app/services/web3'
 import { useIsModalOpen, useToggleModal } from 'app/state/application/hooks'
 import { ApplicationModal } from 'app/state/application/reducer'
 import { useChangeLottery } from 'app/state/lottery/hooks'
-import { useSelectedCryptoCurrency } from 'app/state/lottery/hooks'
+import { useSelectedErc20Currency } from 'app/state/lottery/hooks'
 import React, { FC } from 'react'
 
 const LotteryModal: FC = () => {
@@ -22,26 +22,16 @@ const LotteryModal: FC = () => {
     toggleModal()
     changeLottery(lottery)
   }
-  const currency = useSelectedCryptoCurrency()
+  const erc20Currency = useSelectedErc20Currency()
 
   return (
     <HeadlessUiModal.Controlled isOpen={isModalOpen} onDismiss={toggleModal} maxWidth="3xl">
       <div className="flex flex-col gap-4">
         <HeadlessUiModal.Header header={i18n._(t`Select a Lottery`)} onClose={toggleModal} />
         <div className="grid grid-flow-row-dense grid-cols-1 gap-2 overflow-y-auto md:grid-cols-2">
-          {chainId && currency && currency.isToken ? (
+          {chainId && erc20Currency ? (
             <>
-              {lotteryList[currency.address].map((lottery: Lottery, key: number) => {
-                return (
-                  <button key={key} onClick={() => onClick(lottery)}>
-                    <LotteryCard lottery={lottery} />
-                  </button>
-                )
-              })}
-            </>
-          ) : chainId && currency && currency.isNative ? (
-            <>
-              {lotteryList[chainId].map((lottery: Lottery, key: number) => {
+              {lotteryList[erc20Currency.address].map((lottery: Lottery, key: number) => {
                 return (
                   <button key={key} onClick={() => onClick(lottery)}>
                     <LotteryCard lottery={lottery} />

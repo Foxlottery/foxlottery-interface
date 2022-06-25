@@ -24,8 +24,8 @@ export function useWalletModalToggle(): () => void {
   return useToggleModal(ApplicationModal.WALLET)
 }
 
-export function useCryptoCurrencyModalToggle(): () => void {
-  return useToggleModal(ApplicationModal.CRYPTO_CURRENCY)
+export function useErc20CurrencyModalToggle(): () => void {
+  return useToggleModal(ApplicationModal.ERC20_CURRENCY)
 }
 
 export function useLotteryModalToggle(): () => void {

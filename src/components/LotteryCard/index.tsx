@@ -1,7 +1,7 @@
 import { Lottery } from '@foxlottery/core-sdk'
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
-import { CurrencyLogo } from 'app/components/CurrencyLogo'
+import { Erc20CurrencyLogo } from 'app/components/Erc20CurrencyLogo'
 import Typography from 'app/components/Typography'
 import React from 'react'
 import Moment from 'react-moment'
@@ -19,10 +19,14 @@ const LotteryCard = ({ lottery }: Props) => {
             <div className="flex items-center justify-between gap-2 p-3">
               <div className="mx-auto">
                 <div className="flex items-center">
-                  <CurrencyLogo currency={lottery.currency} className="!rounded-full overflow-hidden" size={20} />
-                  {lottery.currency.symbol && (
+                  <Erc20CurrencyLogo
+                    erc20Currency={lottery.erc20Currency}
+                    className="!rounded-full overflow-hidden"
+                    size={20}
+                  />
+                  {lottery.erc20Currency.symbol && (
                     <Typography variant="sm" className="!text-base ml-1" weight={700}>
-                      {lottery.currency.symbol}
+                      {lottery.erc20Currency.symbol}
                     </Typography>
                   )}
                 </div>
@@ -103,7 +107,7 @@ const LotteryCard = ({ lottery }: Props) => {
                         {i18n._(t`Total Supply`)}
                       </dt>
                       <dd className="order-2 text-xl font-extrabold text-black">
-                        {lottery.totalSupply} {lottery.currency.symbol}
+                        {lottery.totalSupply} {lottery.erc20Currency.symbol}
                       </dd>
                     </div>
                     <div className="flex flex-col p-6 text-center md:p-2">
@@ -125,7 +129,7 @@ const LotteryCard = ({ lottery }: Props) => {
                         {i18n._(t`First Prize Amount`)}
                       </dt>
                       <dd className="order-2 text-xl font-extrabold text-black">
-                        {lottery.firstPrizeCount} {lottery.currency.symbol}
+                        {lottery.firstPrizeCount} {lottery.erc20Currency.symbol}
                       </dd>
                     </div>
                   </dl>

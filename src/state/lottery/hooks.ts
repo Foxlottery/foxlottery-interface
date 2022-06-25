@@ -1,4 +1,4 @@
-import { Currency, Lottery } from '@foxlottery/core-sdk'
+import { Erc20Currency, Lottery } from '@foxlottery/core-sdk'
 import { useAppDispatch } from 'app/state/hooks'
 import { useCurrentUserCurrentCurrencyBalance } from 'app/state/wallet/hooks'
 import { useCallback } from 'react'
@@ -6,22 +6,22 @@ import { useSelector } from 'react-redux'
 import { useWeb3React } from 'web3-react-core'
 
 import { AppState } from '..'
-import { changeInputValue, changeLottery, updateCryptoCurrency } from './reducer'
+import { changeInputValue, changeLottery, updateErc20Currency } from './reducer'
 
-export function useIsSelectedCryptoCurrency(cryptoCurrency: Currency): boolean {
-  const selectedCryptoCurrency = useSelector((state: AppState) => state.lottery.cryptoCurrency)
-  return selectedCryptoCurrency == cryptoCurrency
+export function useIsSelectedCryptoErc20Currency(erc20Currency: Erc20Currency): boolean {
+  const selectedCryptoErc20Currency = useSelector((state: AppState) => state.lottery.erc20Currency)
+  return selectedCryptoErc20Currency == erc20Currency
 }
 
-export function useSelectedCryptoCurrency(): Currency | undefined {
-  return useSelector((state: AppState) => state.lottery.cryptoCurrency)
+export function useSelectedErc20Currency(): Erc20Currency | undefined {
+  return useSelector((state: AppState) => state.lottery.erc20Currency)
 }
 
-export function useSelectCryptoCurrency(): (cryptoCurrency: Currency) => void {
+export function useSelectErc20Currency(): (erc20Currency: Erc20Currency) => void {
   const dispatch = useAppDispatch()
   return useCallback(
-    (cryptoCurrency: Currency) => {
-      dispatch(updateCryptoCurrency(cryptoCurrency))
+    (erc20Currency: Erc20Currency) => {
+      dispatch(updateErc20Currency(erc20Currency))
       dispatch(changeLottery(undefined))
     },
     [dispatch]
@@ -44,17 +44,17 @@ export function useInputValue(): number | undefined {
 
 export function useButtonDisabled(): boolean {
   const { account, chainId } = useWeb3React()
-  const cryptoCurrency = useSelectedCryptoCurrency()
+  const erc20Currency = useSelectedErc20Currency()
   const inputValue = useInputValue()
-  const currentCurrencyBalance = useCurrentUserCurrentCurrencyBalance()
+  const currentErc20CurrencyBalance = useCurrentUserCurrentCurrencyBalance()
 
   return (
     !!account &&
     !!chainId &&
-    !!cryptoCurrency &&
-    !!currentCurrencyBalance &&
+    !!erc20Currency &&
+    !!currentErc20CurrencyBalance &&
     !!inputValue &&
-    (currentCurrencyBalance?.toSignificant() as unknown as number) <= inputValue
+    (currentErc20CurrencyBalance?.toSignificant() as unknown as number) <= inputValue
   )
 }
 
@@ -67,7 +67,7 @@ export function useChangeLottery(): (lottery?: Lottery) => void {
 
   return useCallback(
     (lottery?: Lottery) => {
-      dispatch(updateCryptoCurrency(lottery?.currency))
+      dispatch(updateErc20Currency(lottery?.erc20Currency))
       dispatch(changeLottery(lottery))
     },
     [dispatch]

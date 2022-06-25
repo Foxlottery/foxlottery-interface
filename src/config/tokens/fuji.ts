@@ -1,9 +1,9 @@
-import { ChainId, Token } from '@foxlottery/core-sdk'
+import { ChainId, Erc20Currency } from '@foxlottery/core-sdk'
 
-export const USDT = new Token(
+export const USDT = new Erc20Currency(
   ChainId.AVALANCHE_TESTNET,
-  '0x82DCEC6aa3c8BFE2C96d40d8805EE0dA15708643',
+  '0x2058ec2791dD28b6f67DB836ddf87534F4Bbdf22',
   18,
-  'USDT',
-  'Tether USD'
+  'USD',
+  'The Fuji stablecoin'
 )

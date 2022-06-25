@@ -2,7 +2,7 @@ import { Lottery } from '@foxlottery/core-sdk'
 import lotteryList from 'app/config/lotteryList'
 import Winner from 'app/types/Winner'
 
-const lottery: Lottery = lotteryList['0x82DCEC6aa3c8BFE2C96d40d8805EE0dA15708643'][0]
+const lottery: Lottery = lotteryList['0x6B175474E89094C44Da98b954EedeAC495271d0F'][0]
 
 const winners: Winner[] = [
   {

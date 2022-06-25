@@ -2,32 +2,32 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import Button from 'app/components/Button'
-import { CurrencyLogo } from 'app/components/CurrencyLogo'
+import { Erc20CurrencyLogo } from 'app/components/Erc20CurrencyLogo'
 import Typography from 'app/components/Typography'
-import { useCryptoCurrencyModalToggle } from 'app/state/application/hooks'
-import { useSelectedCryptoCurrency } from 'app/state/lottery/hooks'
+import { useErc20CurrencyModalToggle } from 'app/state/application/hooks'
+import { useSelectedErc20Currency } from 'app/state/lottery/hooks'
 import React, { FC } from 'react'
 import { useWeb3React } from 'web3-react-core'
 
-const SelectCurrency: FC = () => {
+const SelectErc20Currency: FC = () => {
   const { chainId, account } = useWeb3React()
   const { i18n } = useLingui()
-  const currency = useSelectedCryptoCurrency()
-  const toggleCryptoCurrencyModal = useCryptoCurrencyModalToggle()
+  const erc20Currency = useSelectedErc20Currency()
+  const toggleErc20CurrencyModal = useErc20CurrencyModalToggle()
 
   return (
     <>
-      {currency ? (
+      {erc20Currency ? (
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center">
             <div
-              onClick={toggleCryptoCurrencyModal}
+              onClick={toggleErc20CurrencyModal}
               className="flex items-center gap-2 px-2 py-1 bg-gray-200 rounded-full shadow-md cursor-pointer text-high-emphesis"
             >
-              <CurrencyLogo currency={currency} className="!rounded-full overflow-hidden" size={20} />
-              {currency?.symbol && (
+              <Erc20CurrencyLogo erc20Currency={erc20Currency} className="!rounded-full overflow-hidden" size={20} />
+              {erc20Currency?.symbol && (
                 <Typography variant="sm" className="!text-base" weight={700}>
-                  {currency.symbol}
+                  {erc20Currency.symbol}
                 </Typography>
               )}
               <ChevronDownIcon width={18} />
@@ -40,7 +40,7 @@ const SelectCurrency: FC = () => {
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center">
               <Button
-                onClick={toggleCryptoCurrencyModal}
+                onClick={toggleErc20CurrencyModal}
                 color="blue"
                 variant="filled"
                 size="sm"
@@ -57,4 +57,4 @@ const SelectCurrency: FC = () => {
   )
 }
 
-export default SelectCurrency
+export default SelectErc20Currency

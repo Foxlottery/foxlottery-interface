@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export enum ApplicationModal {
   WALLET,
   NETWORK,
-  CRYPTO_CURRENCY,
+  ERC20_CURRENCY,
   LOTTERY,
 }
 

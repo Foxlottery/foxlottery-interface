@@ -1,26 +1,32 @@
-import { Currency, Token } from '@foxlottery/core-sdk'
+import { Erc20Currency } from '@foxlottery/core-sdk'
 import React, { FC } from 'react'
 
 import Typography from '../Typography'
-import CurrencyLogo, { CurrencyLogoProps } from './CurrencyLogo'
+import Erc20CurrencyLogo, { Erc20CurrencyLogoProps } from './Erc20CurrencyLogo'
 
-interface CurrencyLogosProps extends Omit<CurrencyLogoProps, 'currency' | 'size'> {
-  currencies: (Currency | Token)[]
+interface Erc20CurrencyLogosProps extends Omit<Erc20CurrencyLogoProps, 'erc20Currency' | 'size'> {
+  erc20Currencies: Erc20Currency[]
   dense?: boolean
   maxLogos?: number
   size?: number
 }
 
-const CurrencyLogoArray: FC<CurrencyLogosProps> = ({ currencies, dense = false, maxLogos = 3, size = 24, ...rest }) => {
+const Erc20CurrencyLogoArray: FC<Erc20CurrencyLogosProps> = ({
+  erc20Currencies,
+  dense = false,
+  maxLogos = 3,
+  size = 24,
+  ...rest
+}) => {
   const logos =
-    currencies.length <= maxLogos
-      ? currencies
-      : currencies.slice(0, Math.max(0, Math.min(currencies.length, maxLogos) - 1))
-  const remnant = currencies.length - logos.length
+    erc20Currencies.length <= maxLogos
+      ? erc20Currencies
+      : erc20Currencies.slice(0, Math.max(0, Math.min(erc20Currencies.length, maxLogos) - 1))
+  const remnant = erc20Currencies.length - logos.length
 
   return (
     <div className="flex">
-      {logos.map((currency, index) => {
+      {logos.map((erc20Currency, index) => {
         return (
           <div
             className="overflow-hidden rounded-full"
@@ -30,7 +36,7 @@ const CurrencyLogoArray: FC<CurrencyLogosProps> = ({ currencies, dense = false, 
               filter: 'drop-shadow(0px 3px 6px rgba(15, 15, 15, 0.25))',
             }}
           >
-            <CurrencyLogo currency={currency} size={size} {...rest} />
+            <Erc20CurrencyLogo erc20Currency={erc20Currency} size={size} {...rest} />
           </div>
         )
       }, [])}
@@ -46,7 +52,7 @@ const CurrencyLogoArray: FC<CurrencyLogosProps> = ({ currencies, dense = false, 
           }}
         >
           <Typography weight={700} className="text-low-emphesis" variant="sm">
-            +{currencies.length - maxLogos + 1}
+            +{erc20Currencies.length - maxLogos + 1}
           </Typography>
         </div>
       )}
@@ -54,4 +60,4 @@ const CurrencyLogoArray: FC<CurrencyLogosProps> = ({ currencies, dense = false, 
   )
 }
 
-export default CurrencyLogoArray
+export default Erc20CurrencyLogoArray

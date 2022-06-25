@@ -2,7 +2,7 @@ import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
-import CurrentCryptoCurrencyBalance from 'app/components/CurrentCryptoCurrencyBalance'
+import NativeCurrencyBalance from 'app/components/NativeCurrencyBalance'
 import SwitchLanguages from 'app/components/SwitchLanguages'
 import Web3Network from 'app/components/Web3Network'
 import Web3WalletStatus from 'app/components/Web3WalletStatus'
@@ -123,7 +123,7 @@ const Header = () => {
             </div>
             <div className="grid grid-cols-1 px-5 py-5">
               <div className="pl-3">
-                <CurrentCryptoCurrencyBalance />
+                <NativeCurrencyBalance />
               </div>
               <Web3WalletStatus />
             </div>

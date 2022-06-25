@@ -1,5 +1,5 @@
 import { Lottery } from '@foxlottery/core-sdk'
-import chainTokenList from 'app/config/chainTokenList'
+import chainErc20CurrencyList from 'app/config/chainErc20CurrencyList'
 import { supportedNetworkChainIds } from 'app/config/networks'
 
 const today = new Date()
@@ -14,9 +14,9 @@ const chainLotteryList: ChainLotteryList = {}
 
 supportedNetworkChainIds.map((chainId) => {
   chainLotteryList[chainId] = []
-  chainTokenList[chainId].map((currency) => {
+  chainErc20CurrencyList[chainId].map((erc20Currency) => {
     const weeklyLottery = new Lottery(
-      currency,
+      erc20Currency,
       '0x1',
       'Weekly Lottery',
       'WL',
@@ -29,7 +29,7 @@ supportedNetworkChainIds.map((chainId) => {
     )
 
     const monthlyLottery = new Lottery(
-      currency,
+      erc20Currency,
       '0x1',
       'Monthly Lottery',
       'ML',
