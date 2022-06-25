@@ -1,4 +1,4 @@
-import { TokenTimedRandomSendContract } from '@foxlottery/core-sdk'
+import { Lottery } from '@foxlottery/core-sdk'
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import { CurrencyLogo } from 'app/components/CurrencyLogo'
@@ -7,9 +7,9 @@ import React from 'react'
 import Moment from 'react-moment'
 
 interface Props {
-  tokenTimedRandomSendContract: TokenTimedRandomSendContract
+  lottery: Lottery
 }
-const TokenTimedRandomSendContractCard = ({ tokenTimedRandomSendContract }: Props) => {
+const LotteryCard = ({ lottery }: Props) => {
   const { i18n } = useLingui()
   return (
     <>
@@ -19,25 +19,21 @@ const TokenTimedRandomSendContractCard = ({ tokenTimedRandomSendContract }: Prop
             <div className="flex items-center justify-between gap-2 p-3">
               <div className="mx-auto">
                 <div className="flex items-center">
-                  <CurrencyLogo
-                    currency={tokenTimedRandomSendContract.currency}
-                    className="!rounded-full overflow-hidden"
-                    size={20}
-                  />
-                  {tokenTimedRandomSendContract.currency.symbol && (
+                  <CurrencyLogo currency={lottery.currency} className="!rounded-full overflow-hidden" size={20} />
+                  {lottery.currency.symbol && (
                     <Typography variant="sm" className="!text-base ml-1" weight={700}>
-                      {tokenTimedRandomSendContract.currency.symbol}
+                      {lottery.currency.symbol}
                     </Typography>
                   )}
                 </div>
                 <div className="flex items-center justify-center pt-3 mx-auto">
                   <div className="pr-3">
                     <Typography className="text-gray-500" variant="sm">
-                      {tokenTimedRandomSendContract.symbol}{' '}
+                      {lottery.symbol}{' '}
                     </Typography>
                   </div>
                   <Typography variant="h2" weight={700}>
-                    {tokenTimedRandomSendContract.name}
+                    {lottery.name}
                   </Typography>
                 </div>
                 <div>
@@ -61,7 +57,7 @@ const TokenTimedRandomSendContractCard = ({ tokenTimedRandomSendContract }: Prop
                     </dt>
                     <dd className="font-extrabold text-black text-1xl">
                       <Moment format="lll" unix>
-                        {tokenTimedRandomSendContract.closeTimestamp}
+                        {lottery.closeTimestamp}
                       </Moment>
                     </dd>
                   </div>
@@ -86,9 +82,7 @@ const TokenTimedRandomSendContractCard = ({ tokenTimedRandomSendContract }: Prop
                         </svg>
                         {i18n._(t`Participants Count`)}
                       </dt>
-                      <dd className="order-2 text-xl font-extrabold text-black">
-                        {tokenTimedRandomSendContract.participantCount}
-                      </dd>
+                      <dd className="order-2 text-xl font-extrabold text-black">{lottery.participantCount}</dd>
                     </div>
                     <div className="flex flex-col p-6 text-center md:p-2">
                       <dt className="order-1 mt-2 text-sm font-medium leading-6 text-gray-500">
@@ -109,7 +103,7 @@ const TokenTimedRandomSendContractCard = ({ tokenTimedRandomSendContract }: Prop
                         {i18n._(t`Total Supply`)}
                       </dt>
                       <dd className="order-2 text-xl font-extrabold text-black">
-                        {tokenTimedRandomSendContract.totalSupply} {tokenTimedRandomSendContract.currency.symbol}
+                        {lottery.totalSupply} {lottery.currency.symbol}
                       </dd>
                     </div>
                     <div className="flex flex-col p-6 text-center md:p-2">
@@ -131,7 +125,7 @@ const TokenTimedRandomSendContractCard = ({ tokenTimedRandomSendContract }: Prop
                         {i18n._(t`First Prize Amount`)}
                       </dt>
                       <dd className="order-2 text-xl font-extrabold text-black">
-                        {tokenTimedRandomSendContract.firstPrizeCount} {tokenTimedRandomSendContract.currency.symbol}
+                        {lottery.firstPrizeCount} {lottery.currency.symbol}
                       </dd>
                     </div>
                   </dl>
@@ -145,4 +139,4 @@ const TokenTimedRandomSendContractCard = ({ tokenTimedRandomSendContract }: Prop
   )
 }
 
-export default TokenTimedRandomSendContractCard
+export default LotteryCard

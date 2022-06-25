@@ -3,11 +3,11 @@ import { useLingui } from '@lingui/react'
 import CryptoCurrencyBalance from 'app/components/CryptoCurrencyBalance'
 import NumericalInput from 'app/components/Input/Numeric'
 import BuyButton from 'app/components/Lottery/BuyButton'
-import SelectTokenTimedRandomSendContractButton from 'app/components/Lottery/SelectTokenTimedRandomSendContractButton'
+import SelectLotteryButton from 'app/components/Lottery/SelectLotteryButton'
 import SelectCurrency from 'app/components/SelectCurrency'
 import TokenPrice from 'app/components/TokenPrice'
 import CryptoCurrencyModal from 'app/modals/CryptoCurrencyModal'
-import TokenTimedRandomSendContractModal from 'app/modals/TokenTimedRandomSendContractModal'
+import LotteryModal from 'app/modals/LotteryModal'
 import { useActiveWeb3React } from 'app/services/web3'
 import { useChangeInputValue, useInputValue, useSelectedCryptoCurrency } from 'app/state/lottery/hooks'
 import React, { FC } from 'react'
@@ -22,7 +22,7 @@ const Lottery: FC = () => {
   return (
     <>
       <CryptoCurrencyModal />
-      <TokenTimedRandomSendContractModal />
+      <LotteryModal />
 
       {!account && <h1 className="mt-5 font-semibold text-center">{i18n._(t`Welcom to Foxlottery`)}👋</h1>}
       <div className="flex justify-center">
@@ -51,7 +51,7 @@ const Lottery: FC = () => {
             </div>
           </div>
           {currency && <TokenPrice outputCurrency={currency} />}
-          <SelectTokenTimedRandomSendContractButton />
+          <SelectLotteryButton />
           <BuyButton />
         </div>
       </div>

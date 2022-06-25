@@ -1,4 +1,4 @@
-import { Currency, TokenTimedRandomSendContract } from '@foxlottery/core-sdk'
+import { Currency, Lottery } from '@foxlottery/core-sdk'
 import { useAppDispatch } from 'app/state/hooks'
 import { useCurrentUserCurrentCurrencyBalance } from 'app/state/wallet/hooks'
 import { useCallback } from 'react'
@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import { useWeb3React } from 'web3-react-core'
 
 import { AppState } from '..'
-import { changeInputValue, changeTokenTimedRandomSendContract, updateCryptoCurrency } from './reducer'
+import { changeInputValue, changeLottery, updateCryptoCurrency } from './reducer'
 
 export function useIsSelectedCryptoCurrency(cryptoCurrency: Currency): boolean {
   const selectedCryptoCurrency = useSelector((state: AppState) => state.lottery.cryptoCurrency)
@@ -22,7 +22,7 @@ export function useSelectCryptoCurrency(): (cryptoCurrency: Currency) => void {
   return useCallback(
     (cryptoCurrency: Currency) => {
       dispatch(updateCryptoCurrency(cryptoCurrency))
-      dispatch(changeTokenTimedRandomSendContract(undefined))
+      dispatch(changeLottery(undefined))
     },
     [dispatch]
   )
@@ -58,19 +58,17 @@ export function useButtonDisabled(): boolean {
   )
 }
 
-export function useTokenTimedRandomSendContract(): TokenTimedRandomSendContract | undefined {
-  return useSelector((state: AppState) => state.lottery.tokenTimedRandomSendContract)
+export function useLottery(): Lottery | undefined {
+  return useSelector((state: AppState) => state.lottery.lottery)
 }
 
-export function useChangeTokenTimedRandomSendContract(): (
-  tokenTimedRandomSendContract?: TokenTimedRandomSendContract
-) => void {
+export function useChangeLottery(): (lottery?: Lottery) => void {
   const dispatch = useAppDispatch()
 
   return useCallback(
-    (tokenTimedRandomSendContract?: TokenTimedRandomSendContract) => {
-      dispatch(updateCryptoCurrency(tokenTimedRandomSendContract?.currency))
-      dispatch(changeTokenTimedRandomSendContract(tokenTimedRandomSendContract))
+    (lottery?: Lottery) => {
+      dispatch(updateCryptoCurrency(lottery?.currency))
+      dispatch(changeLottery(lottery))
     },
     [dispatch]
   )

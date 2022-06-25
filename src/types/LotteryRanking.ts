@@ -1,9 +1,9 @@
-import { TokenTimedRandomSendContract } from '@foxlottery/core-sdk'
+import { Lottery } from '@foxlottery/core-sdk'
 
 type LotteryRanking = {
   rank: number
   highestLotteryWinning: number
-  lottery: TokenTimedRandomSendContract
+  lottery: Lottery
 }
 
 export default LotteryRanking

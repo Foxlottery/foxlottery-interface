@@ -1,17 +1,17 @@
-import { NativeCurrency, TokenTimedRandomSendContract } from '@foxlottery/core-sdk'
+import { Lottery } from '@foxlottery/core-sdk'
 import chainTokenList from 'app/config/chainTokenList'
 import { supportedNetworkChainIds } from 'app/config/networks'
-import TokenTimedRandomSendContractList from 'app/types/TokenTimedRandomSendContractList'
+import LotteryList from 'app/types/LotteryList'
 
 const today = new Date()
 const tomorrow = new Date(today)
 tomorrow.setDate(tomorrow.getDate() + 1)
 
-const tokenTimedRandomSendContractList: TokenTimedRandomSendContractList = {}
+const lotteryList: LotteryList = {}
 
 supportedNetworkChainIds.map((chainId) => {
   chainTokenList[chainId].map((token) => {
-    const weeklyTokenTimedRandomSendContract = new TokenTimedRandomSendContract(
+    const weeklyLottery = new Lottery(
       token,
       '0x1',
       'Weekly Lottery',
@@ -24,7 +24,7 @@ supportedNetworkChainIds.map((chainId) => {
       10 * 25
     )
 
-    const monthlyTokenTimedRandomSendContract = new TokenTimedRandomSendContract(
+    const monthlyLottery = new Lottery(
       token,
       '0x1',
       'Monthly Lottery',
@@ -37,11 +37,8 @@ supportedNetworkChainIds.map((chainId) => {
       10 * 25
     )
 
-    tokenTimedRandomSendContractList[token instanceof NativeCurrency ? chainId : token.address] = [
-      weeklyTokenTimedRandomSendContract,
-      monthlyTokenTimedRandomSendContract,
-    ]
+    lotteryList[token.address] = [weeklyLottery, monthlyLottery]
   })
 })
 
-export default tokenTimedRandomSendContractList
+export default lotteryList
