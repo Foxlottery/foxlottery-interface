@@ -81,3 +81,18 @@ export function useUSDCValueWithLoadingIndicator(currencyAmount: CurrencyAmount<
     }
   }, [currencyAmount, price])
 }
+
+export function useFormattedUSDCPrice(currency?: Currency) {
+  const price = useUSDCPrice(currency)
+  let formattedPrice
+
+  try {
+    formattedPrice = price?.toSignificant(4)
+  } catch (error) {
+    formattedPrice = '0'
+  }
+
+  if (formattedPrice) {
+    return `$1 = ${formattedPrice} ${currency?.symbol}`
+  }
+}

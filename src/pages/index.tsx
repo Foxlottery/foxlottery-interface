@@ -5,7 +5,7 @@ import NetworkGuard from 'app/guards/Network'
 const Home = () => {
   return (
     <>
-      <div className="w-full h-96">
+      <div className="w-full h-full">
         <Lottery />
       </div>
     </>
