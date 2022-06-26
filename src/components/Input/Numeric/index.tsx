@@ -11,10 +11,11 @@ interface Input extends Omit<React.HTMLProps<HTMLInputElement>, 'ref' | 'onChang
   error?: boolean
   fontSize?: string
   align?: 'right' | 'left'
+  isOnlyInteger?: boolean
 }
 
 export const Input: FC<Input> = forwardRef<HTMLInputElement, Input>(
-  ({ value, onUserInput, placeholder, className = defaultClassName, min, ...rest }, ref) => {
+  ({ value, onUserInput, placeholder, className = defaultClassName, min, isOnlyInteger, title, ...rest }, ref) => {
     const enforcer = (nextUserInput: string) => {
       if (nextUserInput === '' || inputRegex.test(escapeRegExp(nextUserInput))) {
         onUserInput(nextUserInput)
@@ -27,15 +28,15 @@ export const Input: FC<Input> = forwardRef<HTMLInputElement, Input>(
         ref={ref}
         value={value}
         onChange={(event) => {
-          // replace commas with periods, because uniswap exclusively uses period as the decimal separator
-          enforcer(event.target.value.replace(/,/g, '.'))
+          enforcer(event.target.value.replace(/,/g, ''))
+          if (isOnlyInteger) {
+            enforcer(event.target.value.replace('.', ''))
+          }
         }}
         // universal input options
         inputMode="decimal"
-        title="Token Amount"
         autoComplete="off"
         autoCorrect="off"
-        // text-specific options
         type="text"
         pattern="^[0-9]*[.,]?[0-9]*$"
         placeholder={placeholder || '0.0'}
