@@ -40,9 +40,10 @@ const Lottery: FC = () => {
                 <NumericalInput
                   value={inputValue || ''}
                   onUserInput={changeInputValue}
-                  placeholder="0.00"
+                  placeholder="0"
                   className="leading-[36px] focus:placeholder:text-low-emphesis flex-grow w-full text-left bg-transparent text-inherit disabled:cursor-not-allowed"
                   autoFocus
+                  isOnlyInteger={true}
                 />
               </div>
               <div className="text-sm font-semibold text-gray-600 cursor-pointer select-none whitespace-nowrap">
