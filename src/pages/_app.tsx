@@ -11,6 +11,7 @@ import { MulticallUpdater } from 'app/lib/state/multicall'
 import store, { persistor } from 'app/state'
 import ApplicationUpdater from 'app/state/application/updater'
 import LogsUpdater from 'app/state/logs/updater'
+import LotteryUpdater from 'app/state/lotteries/updater'
 import * as plurals from 'make-plural/plurals'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
@@ -101,6 +102,7 @@ function MyApp({ Component, pageProps }: any) {
                     <BlockUpdater />
                     <MulticallUpdater />
                     <LogsUpdater />
+                    <LotteryUpdater />
                   </>
 
                   <Guard>

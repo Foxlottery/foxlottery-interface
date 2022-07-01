@@ -3,6 +3,8 @@
 import { AddressZero } from '@ethersproject/constants'
 import { Contract } from '@ethersproject/contracts'
 import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
+import ERC20_ABI from 'app/constants/abis/erc20.json'
+import LOTTERY_ABI from 'app/constants/abis/lottery.json'
 import { isAddress } from 'app/functions/validate'
 
 // account is not optional
@@ -21,4 +23,20 @@ export function getContract(address: string, ABI: any, library: Web3Provider, ac
     throw Error(`Invalid 'address' parameter '${address}'.`)
   }
   return new Contract(address, ABI, getProviderOrSigner(library, account))
+}
+
+export function getLotteryContract(address: string, library: Web3Provider, account?: string): Contract {
+  if (!isAddress(address) || address === AddressZero) {
+    throw Error(`Invalid 'address' parameter '${address}'.`)
+  }
+
+  return new Contract(address, LOTTERY_ABI, getProviderOrSigner(library))
+}
+
+export function getErc20Contract(address: string, library: Web3Provider) {
+  if (!isAddress(address) || address === AddressZero) {
+    throw Error(`Invalid 'address' parameter '${address}'.`)
+  }
+
+  return new Contract(address, ERC20_ABI, getProviderOrSigner(library))
 }

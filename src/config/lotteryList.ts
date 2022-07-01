@@ -1,7 +1,7 @@
 import { Lottery } from '@foxlottery/core-sdk'
 import chainErc20CurrencyList from 'app/config/chainErc20CurrencyList'
 import { supportedNetworkChainIds } from 'app/config/networks'
-import LotteryList from 'app/types/LotteryList'
+import LotteryList from 'app/types/LotteriesByAddress'
 
 const today = new Date()
 const tomorrow = new Date(today)
