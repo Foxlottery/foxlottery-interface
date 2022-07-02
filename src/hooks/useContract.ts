@@ -5,6 +5,7 @@ import ENS_ABI from 'app/constants/abis/ens-registrar.json'
 import { ERC20_BYTES32_ABI } from 'app/constants/abis/erc20'
 import ERC20_ABI from 'app/constants/abis/erc20.json'
 import MULTICALL_ABI from 'app/constants/abis/interface-multicall.json'
+import LOTTERY_ABI from 'app/constants/abis/Lottery.json'
 import { getContract } from 'app/functions'
 import { useActiveWeb3React } from 'app/services/web3'
 import { useMemo } from 'react'
@@ -47,6 +48,10 @@ export function useENSResolverContract(address: string | undefined, withSignerIf
 
 export function useBytes32Erc20Contract(currencyAddress?: string, withSignerIfPossible?: boolean): Contract | null {
   return useContract(currencyAddress, ERC20_BYTES32_ABI, withSignerIfPossible)
+}
+
+export function useLotteryContract(address: string): Contract | null {
+  return useContract(address, LOTTERY_ABI, false)
 }
 
 const MULTICALL_ADDRESS = {

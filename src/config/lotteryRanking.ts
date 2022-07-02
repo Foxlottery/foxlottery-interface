@@ -1,8 +1,5 @@
-import { Lottery } from '@foxlottery/core-sdk'
-import lotteryList from 'app/config/lotteryList'
+import lottery from 'app/config/sampleLottery'
 import LotteryRanking from 'app/types/LotteryRanking'
-
-const lottery: Lottery = lotteryList['0x6B175474E89094C44Da98b954EedeAC495271d0F'][0]
 
 const lotteryRanking: LotteryRanking[] = [
   {
