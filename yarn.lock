@@ -868,7 +868,7 @@
     "@ethersproject/properties" "^5.6.0"
     "@ethersproject/transactions" "^5.6.0"
 
-"@ethersproject/contracts@5.6.2":
+"@ethersproject/contracts@5.6.2", "@ethersproject/contracts@^5.4.0":
   version "5.6.2"
   resolved "https://registry.yarnpkg.com/@ethersproject/contracts/-/contracts-5.6.2.tgz#20b52e69ebc1b74274ff8e3d4e508de971c287bc"
   integrity sha512-hguUA57BIKi6WY0kHvZp6PwPlWF87MCeB4B7Z7AbUpTxfFXFdn/3b0GmjZPagIHS+3yhcBJDnuEfU4Xz+Ks/8g==
@@ -1415,13 +1415,14 @@
   dependencies:
     prop-types "^15.8.1"
 
-"@foxlottery/core-sdk@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.1.2.tgz#1aece6f8a1db5e179a8c565006dba32b3c8418f8"
-  integrity sha512-K/VS48HKCMxsMzPTelIkCwD1Vmdj5pzWnTqmjrtaJ1FnTQ0fj1c79sg3oQiNYmOiQR5KnqE/QtDI7WPIYDfAxw==
+"@foxlottery/core-sdk@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.1.6.tgz#4b65b74c23af1c58d761351acfd9c538073f04ba"
+  integrity sha512-uPVi4ENMra5/4VTvPI6woQtTEs7QKWhzX9WorNEfO1zIr1i/T9BfjIr/5YUxJb5lmCkaiDNXSVSIO4JttXCXKw==
   dependencies:
     "@ethersproject/address" "^5.4.0"
     "@ethersproject/bignumber" "^5.4.0"
+    "@ethersproject/contracts" "^5.4.0"
     "@ethersproject/providers" "^5.4.0"
     "@ethersproject/solidity" "^5.4.0"
     big.js "^6.1.1"

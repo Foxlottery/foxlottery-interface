@@ -1,5 +1,5 @@
 import { Contract } from '@ethersproject/contracts'
-import { Erc20Currency, Lottery } from '@foxlottery/core-sdk'
+import { DefinitelySendingRule, Erc20Currency, Lottery, RandomSendingRule } from '@foxlottery/core-sdk'
 import chainLotteryAddresses from 'app/config/chainLotteryAddresses'
 import { getErc20Contract, getLotteryContract } from 'app/functions/contract'
 import getLibrary from 'app/functions/getLibrary'
@@ -41,11 +41,53 @@ export default function Updater(): null {
             await erc20Contract.name()
           )
 
-          const lotteryIndex = await lotteryContract.index()
+          const definitelySendingRules: DefinitelySendingRule[] = []
+
+          let lotteryIndex = await lotteryContract.index()
           const participantCount = await lotteryContract.participantCount(lotteryIndex.toNumber())
           const cycle = await lotteryContract.cycle()
           const closeTimestamp = await lotteryContract.closeTimestamp()
           const totalSupply = await lotteryContract.totalSupply()
+          const ticketPrice = await lotteryContract.ticketPrice()
+          const sellerCommissionRatio = await lotteryContract.sellerCommissionRatio()
+          const lastDefinitelySendingRuleId = await lotteryContract.lastDefinitelySendingRuleId()
+          const lastRandomSendingRuleId = await lotteryContract.lastRandomSendingRuleId()
+          lotteryIndex = lotteryIndex.toNumber()
+
+          for (
+            let definitelySendingRuleId = 1;
+            definitelySendingRuleId <= lastDefinitelySendingRuleId.toNumber();
+            definitelySendingRuleId++
+          ) {
+            const definitelySendingRuleAddress = await lotteryContract.definitelySendingRuleAddress(
+              definitelySendingRuleId
+            )
+            // const definitelySendingRuleRatio = await lotteryContract.definitelySendingRuleRatio(definitelySendingRuleId)
+            const definitelySendingRuleRatio = 100 // TODO:
+            definitelySendingRules.push({
+              address: definitelySendingRuleAddress,
+              ratio: definitelySendingRuleRatio,
+            })
+          }
+
+          const randomSendingRules: RandomSendingRule[] = []
+
+          for (
+            let randomSendingRuleId = 1;
+            randomSendingRuleId <= lastRandomSendingRuleId.toNumber();
+            randomSendingRuleId++
+          ) {
+            const randomSendingRuleRatio = await lotteryContract.randomSendingRuleRatio(randomSendingRuleId)
+            const randomSendingRuleSendingCount = await lotteryContract.randomSendingRuleSendingCount(
+              randomSendingRuleId
+            )
+
+            randomSendingRules.push({
+              sendingCount: randomSendingRuleSendingCount.toNumber(),
+              ratio: randomSendingRuleRatio.toNumber(),
+            })
+          }
+
           const lottery = new Lottery(
             erc20Currency,
             lotteryContract.address,
@@ -53,10 +95,15 @@ export default function Updater(): null {
             await lotteryContract.symbol(),
             cycle.toNumber(),
             closeTimestamp.toNumber(),
-            lotteryIndex.toNumber(),
+            lotteryIndex,
+            await lotteryContract.isOnlyOwner(),
             participantCount.toNumber(),
             totalSupply.toNumber(),
-            1 // firstPrizeCount
+            1, // firstPrizeCount
+            Number(ticketPrice.toString()),
+            definitelySendingRules,
+            randomSendingRules,
+            sellerCommissionRatio
           )
           //lotteryContract.ticketPrice()
           if (!lotteryAddressesByErc20Addresses[erc20Contract.address]) {
@@ -66,7 +113,7 @@ export default function Updater(): null {
           lotteries[lotteryAddress] = lottery
         })
       )
-      console.log(lotteries)
+
       dispatch(updateLotteryAddressesByErc20Addresses(lotteryAddressesByErc20Addresses))
       dispatch(updateLotteries(lotteries))
     }
