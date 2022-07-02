@@ -4,7 +4,7 @@ import { AddressZero } from '@ethersproject/constants'
 import { Contract } from '@ethersproject/contracts'
 import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import ERC20_ABI from 'app/constants/abis/erc20.json'
-import LOTTERY_ABI from 'app/constants/abis/lottery.json'
+import LOTTERY_ABI from 'app/constants/abis/Lottery.json'
 import { isAddress } from 'app/functions/validate'
 
 // account is not optional
