@@ -31,9 +31,7 @@ const nextConfig = {
       '/404': { page: '/404' },
       '/tickets': { page: '/tickets' },
       '/ticket': { page: '/ticket' },
-      '/ranking': { page: '/ranking' },
       '/lottery': { page: '/lottery', query: 'lotteryAddress' },
-      '/history': { page: '/history' },
     }
   },
   reactStrictMode: true,

@@ -19,14 +19,6 @@ const TicketsUI: FC<Props> = () => {
           </div>
         </div>
       </div>
-      <div className="mt-10">
-        <h1 className="py-5 font-semibold">{i18n._(t`Tickets already drawn`)}</h1>
-        <div className="flex justify-center my-3bg-white opacity-60">
-          <div className="space-y-16">
-            <TicketUI ticket={sampleTicket} />
-          </div>
-        </div>
-      </div>
     </>
   )
 }
