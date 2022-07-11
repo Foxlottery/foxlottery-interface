@@ -11,7 +11,7 @@ const TicketsUI: FC<Props> = () => {
   return (
     <>
       <div className="mt-10">
-        <h1 className="mr-0 font-semibold">{i18n._(t`Undrawn Tickets`)}</h1>
+        <h1 className="mr-0 font-semibold">{i18n._(t`Tickets`)}</h1>
         <div className="flex justify-center my-3 bg-white">
           <div className="space-y-16">
             <TicketUI ticket={sampleTicket} />
