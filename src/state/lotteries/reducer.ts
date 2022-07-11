@@ -5,11 +5,13 @@ import LotteryAddressesByErc20Addresses from 'app/types/LotteryAddressesByErc20A
 export interface LotteryState {
   lotteries?: LotteriesByAddress
   lotteryAddressesByErc20Addresses?: LotteryAddressesByErc20Addresses
+  isLoading: boolean
 }
 
 const initialState: LotteryState = {
   lotteries: undefined,
   lotteryAddressesByErc20Addresses: undefined,
+  isLoading: false,
 }
 
 const slice = createSlice({
@@ -22,8 +24,11 @@ const slice = createSlice({
     updateLotteryAddressesByErc20Addresses(state, action) {
       state.lotteryAddressesByErc20Addresses = action.payload
     },
+    updateIsLoading(state, action) {
+      state.isLoading = action.payload
+    },
   },
 })
 
-export const { updateLotteries, updateLotteryAddressesByErc20Addresses } = slice.actions
+export const { updateLotteries, updateLotteryAddressesByErc20Addresses, updateIsLoading } = slice.actions
 export default slice.reducer
