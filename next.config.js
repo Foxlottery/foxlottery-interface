@@ -24,6 +24,18 @@ const nextConfig = {
 
     return config
   },
+  exportPathMap: async function (defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
+    return {
+      '/': { page: '/' },
+      '/500': { page: '/500' },
+      '/404': { page: '/404' },
+      '/tickets': { page: '/tickets' },
+      '/ticket': { page: '/ticket' },
+      '/ranking': { page: '/ranking' },
+      '/lottery': { page: '/lottery', query: 'lotteryAddress' },
+      '/history': { page: '/history' },
+    }
+  },
   reactStrictMode: true,
   i18n: {
     localeDetection: true,

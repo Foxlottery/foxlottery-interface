@@ -24,10 +24,6 @@ const SendingRuleChart = ({ lottery }: Props) => {
   const [labels, setLabels] = useState<string[]>([])
   const [data, setData] = useState<number[]>([])
 
-  console.log(lottery.randomSendingRules)
-  console.log(lottery.definitelySendingRules)
-  console.log(lottery.sellerCommissionRatio)
-
   useEffect(() => {
     let labels: string[] = []
     let data: number[] = []
@@ -55,21 +51,22 @@ const SendingRuleChart = ({ lottery }: Props) => {
   }, [lottery.definitelySendingRules, lottery.randomSendingRules, lottery.sellerCommissionRatio, setData])
 
   return (
-    <>
+    <div className="max-w-md mx-auto w-100">
       <h1 className="mr-0 font-semibold">{i18n._(t`Ratio`)}</h1>
-      <Doughnut
-        data={{
-          labels,
-          datasets: [
-            {
-              data,
-              backgroundColor,
-            },
-          ],
-        }}
-      />
-      ;
-    </>
+      <div className="mx-auto">
+        <Doughnut
+          data={{
+            labels,
+            datasets: [
+              {
+                data,
+                backgroundColor,
+              },
+            ],
+          }}
+        />
+      </div>
+    </div>
   )
 }
 
