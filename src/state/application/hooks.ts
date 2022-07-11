@@ -28,6 +28,6 @@ export function useErc20CurrencyModalToggle(): () => void {
   return useToggleModal(ApplicationModal.ERC20_CURRENCY)
 }
 
-export function useLotteryModalToggle(): () => void {
-  return useToggleModal(ApplicationModal.LOTTERY)
+export function useBuyTicketModalToggle(): () => void {
+  return useToggleModal(ApplicationModal.BUY_TICKET)
 }

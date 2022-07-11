@@ -1,14 +1,11 @@
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
+import BuyButton from 'app/components/BuyButton'
 import Erc20CurrencyBalance from 'app/components/Erc20CurrencyBalance'
 import Erc20CurrencyPrice from 'app/components/Erc20CurrencyPrice'
 import NumericalInput from 'app/components/Input/Numeric'
-import BuyButton from 'app/components/Lottery/BuyButton'
-import SelectLotteryButton from 'app/components/Lottery/SelectLotteryButton'
-import SelectErc20Currency from 'app/components/SelectErc20Currency'
 import TicketBuyDetail from 'app/components/TicketBuyDetail'
 import Erc20CurrencyModal from 'app/modals/Erc20CurrencyModal'
-import LotteryModal from 'app/modals/LotteryModal'
 import { useActiveWeb3React } from 'app/services/web3'
 import { useChangeInputValue, useInputValue, useSelectedErc20Currency } from 'app/state/lottery/hooks'
 import { useLottery } from 'app/state/lottery/hooks'
@@ -25,7 +22,6 @@ const Lottery: FC = () => {
   return (
     <>
       <Erc20CurrencyModal />
-      <LotteryModal />
 
       {!account && <h1 className="mt-5 font-semibold text-center">{i18n._(t`Welcom to Foxlottery`)}👋</h1>}
       <div className="flex justify-center">
@@ -37,7 +33,6 @@ const Lottery: FC = () => {
             </div>
           )}
           <div className="border-gray-200 hover:border-gray-300 rounded-[14px] border bg-dark-900 p-3 flex flex-col gap-4 bg-gray-50">
-            <SelectErc20Currency />
             <div className="flex gap-1 justify-between items-baseline px-1.5">
               <div className="text-2xl leading-7 tracking-[-0.01em] font-bold relative flex items-baseline flex-grow gap-3 overflow-hidden">
                 <NumericalInput
@@ -55,7 +50,6 @@ const Lottery: FC = () => {
             </div>
           </div>
           {erc20Currency && <Erc20CurrencyPrice erc20Currency={erc20Currency} />}
-          <SelectLotteryButton />
           {lottery && erc20Currency && (
             <TicketBuyDetail erc20Currency={erc20Currency} lottery={lottery} count={inputValue} />
           )}

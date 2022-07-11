@@ -4,7 +4,7 @@ export enum ApplicationModal {
   WALLET,
   NETWORK,
   ERC20_CURRENCY,
-  LOTTERY,
+  BUY_TICKET,
 }
 
 export interface ApplicationState {
