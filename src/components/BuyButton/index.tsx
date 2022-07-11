@@ -8,7 +8,7 @@ import { useCurrentUserCurrentCurrencyBalance } from 'app/state/wallet/hooks'
 import React, { FC } from 'react'
 import { useWeb3React } from 'web3-react-core'
 
-const LotteryButton: FC = () => {
+const BuyButton: FC = () => {
   const { account } = useWeb3React()
   const { i18n } = useLingui()
   const toggleWalletModal = useWalletModalToggle()
@@ -48,4 +48,4 @@ const LotteryButton: FC = () => {
   )
 }
 
-export default LotteryButton
+export default BuyButton

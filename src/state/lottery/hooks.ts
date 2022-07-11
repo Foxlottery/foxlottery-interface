@@ -67,7 +67,6 @@ export function useChangeLottery(): (lottery?: Lottery) => void {
 
   return useCallback(
     (lottery?: Lottery) => {
-      dispatch(updateErc20Currency(lottery?.erc20Currency))
       dispatch(changeLottery(lottery))
     },
     [dispatch]

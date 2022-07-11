@@ -9,12 +9,14 @@ import LotteryAddressesByErc20Addresses from 'app/types/LotteryAddressesByErc20A
 import { useEffect } from 'react'
 
 import { useAppDispatch } from '../hooks'
+import { useSetIsLoading } from './hooks'
 import { updateLotteries, updateLotteryAddressesByErc20Addresses } from './reducer'
 
 export default function Updater(): null {
   const { chainId, account } = useActiveWeb3React()
   const dispatch = useAppDispatch()
   const library = getLibrary(window.ethereum)
+  const setIsLoading = useSetIsLoading()
 
   // get lottery contract from blockchain network
   useEffect(() => {
@@ -22,6 +24,7 @@ export default function Updater(): null {
       if (!chainId || !account) {
         return
       }
+      setIsLoading(true)
       let lotteryAddresses: string[] = []
       if (chainId) {
         lotteryAddresses = chainLotteryAddresses[chainId]
@@ -45,9 +48,10 @@ export default function Updater(): null {
 
       dispatch(updateLotteryAddressesByErc20Addresses(lotteryAddressesByErc20Addresses))
       dispatch(updateLotteries(lotteries))
+      setIsLoading(false)
     }
     exec()
-  }, [dispatch, chainId, library, account])
+  }, [dispatch, chainId, library, account, setIsLoading])
 
   return null
 }

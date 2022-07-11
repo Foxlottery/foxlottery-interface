@@ -3,19 +3,15 @@ import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import { Erc20CurrencyLogo } from 'app/components/Erc20CurrencyLogo'
 import Typography from 'app/components/Typography'
-import { useActiveWeb3React } from 'app/services/web3'
-import Link from 'next/link'
 import React from 'react'
 import Moment from 'react-moment'
 
 interface Props {
   lottery: Lottery
-  isDisplayLink: boolean
 }
 
-const LotteryCard = ({ lottery, isDisplayLink = true }: Props) => {
+const LotteryCard = ({ lottery }: Props) => {
   const { i18n } = useLingui()
-  const { chainId } = useActiveWeb3React()
 
   return (
     <>
@@ -140,15 +136,6 @@ const LotteryCard = ({ lottery, isDisplayLink = true }: Props) => {
                     </div>
                   </dl>
                 </div>
-                {isDisplayLink && (
-                  <div>
-                    <Link href={`/lottery?chainId=${chainId}&lotteryAddress=${lottery.address}`} passHref>
-                      <div className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50">
-                        <span>See more</span>
-                      </div>
-                    </Link>
-                  </div>
-                )}
               </div>
             </div>
           </div>
