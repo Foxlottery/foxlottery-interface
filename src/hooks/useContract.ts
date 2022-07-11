@@ -50,8 +50,8 @@ export function useBytes32Erc20Contract(currencyAddress?: string, withSignerIfPo
   return useContract(currencyAddress, ERC20_BYTES32_ABI, withSignerIfPossible)
 }
 
-export function useLotteryContract(address: string): Contract | null {
-  return useContract(address, LOTTERY_ABI, false)
+export function useLotteryContract(address: string, withSignerIfPossible?: boolean): Contract | null {
+  return useContract(address, LOTTERY_ABI, withSignerIfPossible)
 }
 
 const MULTICALL_ADDRESS = {

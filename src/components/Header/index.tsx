@@ -20,7 +20,7 @@ const Header = () => {
   const router = useRouter()
   const { i18n } = useLingui()
   const header = headerConfig(i18n)
-  const { library } = useActiveWeb3React()
+  const { library, chainId } = useActiveWeb3React()
   const isCoinbaseWallet = useIsCoinbaseWallet()
 
   return (
@@ -48,7 +48,7 @@ const Header = () => {
 
             if (menuItem.link) {
               return (
-                <Link key={menuItem.key} href={menuItem.link} passHref>
+                <Link key={menuItem.key} href={`${menuItem.link}?chainId=${chainId}`} passHref>
                   <div
                     className={`text-base font-medium pb-1 px-1 text-gray-500 hover:text-gray-900 cursor-pointer ${
                       isActive ? 'border-gray-300 border-b-2' : null

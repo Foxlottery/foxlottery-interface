@@ -38,7 +38,7 @@ const LotteryModal: FC = () => {
                 if (lottery) {
                   return (
                     <button key={key} onClick={() => onClick(lottery)}>
-                      <LotteryCard lottery={lottery} />
+                      <LotteryCard lottery={lottery} isDisplayLink={true} />
                     </button>
                   )
                 }
@@ -52,7 +52,7 @@ const LotteryModal: FC = () => {
                   if (lottery) {
                     return (
                       <button key={key} onClick={() => onClick(lottery)}>
-                        <LotteryCard lottery={lottery} />
+                        <LotteryCard lottery={lottery} isDisplayLink={true} />
                       </button>
                     )
                   }

@@ -3,14 +3,20 @@ import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import { Erc20CurrencyLogo } from 'app/components/Erc20CurrencyLogo'
 import Typography from 'app/components/Typography'
+import { useActiveWeb3React } from 'app/services/web3'
+import Link from 'next/link'
 import React from 'react'
 import Moment from 'react-moment'
 
 interface Props {
   lottery: Lottery
+  isDisplayLink: boolean
 }
-const LotteryCard = ({ lottery }: Props) => {
+
+const LotteryCard = ({ lottery, isDisplayLink = true }: Props) => {
   const { i18n } = useLingui()
+  const { chainId } = useActiveWeb3React()
+
   return (
     <>
       <div className="p-1 pb-3 bg-white">
@@ -107,7 +113,7 @@ const LotteryCard = ({ lottery }: Props) => {
                         {i18n._(t`Total Supply`)}
                       </dt>
                       <dd className="order-2 text-xl font-extrabold text-black">
-                        {lottery.totalSupply} {lottery.erc20Currency.symbol}
+                        {lottery.totalSupply / 10 ** lottery.erc20Currency.decimals} {lottery.erc20Currency.symbol}
                       </dd>
                     </div>
                     <div className="flex flex-col p-6 text-center md:p-2">
@@ -129,11 +135,20 @@ const LotteryCard = ({ lottery }: Props) => {
                         {i18n._(t`First Prize Amount`)}
                       </dt>
                       <dd className="order-2 text-xl font-extrabold text-black">
-                        {lottery.firstPrizeCount} {lottery.erc20Currency.symbol}
+                        {lottery.firstPrizeCount / 10 ** lottery.erc20Currency.decimals} {lottery.erc20Currency.symbol}
                       </dd>
                     </div>
                   </dl>
                 </div>
+                {isDisplayLink && (
+                  <div>
+                    <Link href={`/lottery?chainId=${chainId}&lotteryAddress=${lottery.address}`} passHref>
+                      <div className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50">
+                        <span>See more</span>
+                      </div>
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           </div>

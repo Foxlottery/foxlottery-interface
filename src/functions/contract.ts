@@ -26,17 +26,9 @@ export function getContract(address: string, ABI: any, library: Web3Provider, ac
 }
 
 export function getLotteryContract(address: string, library: Web3Provider, account?: string): Contract {
-  if (!isAddress(address) || address === AddressZero) {
-    throw Error(`Invalid 'address' parameter '${address}'.`)
-  }
-
-  return new Contract(address, LOTTERY_ABI, getProviderOrSigner(library))
+  return getContract(address, LOTTERY_ABI, library, account)
 }
 
-export function getErc20Contract(address: string, library: Web3Provider) {
-  if (!isAddress(address) || address === AddressZero) {
-    throw Error(`Invalid 'address' parameter '${address}'.`)
-  }
-
-  return new Contract(address, ERC20_ABI, getProviderOrSigner(library))
+export function getErc20Contract(address: string, library: Web3Provider, account?: string) {
+  return getContract(address, ERC20_ABI, library, account)
 }
