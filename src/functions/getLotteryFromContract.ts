@@ -14,7 +14,8 @@ async function getLotteryFromContract(lotteryContract: Contract, erc20Contract: 
   const definitelySendingRules: DefinitelySendingRule[] = []
 
   let lotteryIndex = await lotteryContract.index()
-  const participantCount = await lotteryContract.participantCount(lotteryIndex.toNumber())
+  lotteryIndex = lotteryIndex.toNumber()
+  const participantCount = await lotteryContract.participantCount(lotteryIndex)
   const cycle = await lotteryContract.cycle()
   const closeTimestamp = await lotteryContract.closeTimestamp()
   let totalSupply = await lotteryContract.totalSupply()
@@ -22,7 +23,9 @@ async function getLotteryFromContract(lotteryContract: Contract, erc20Contract: 
   const sellerCommissionRatio = await lotteryContract.sellerCommissionRatio()
   const lastDefinitelySendingRuleId = await lotteryContract.lastDefinitelySendingRuleId()
   const lastRandomSendingRuleId = await lotteryContract.lastRandomSendingRuleId()
-  lotteryIndex = lotteryIndex.toNumber()
+  const sellerLastId = await lotteryContract.sellerLastId(lotteryIndex)
+  const ticketLastId = lotteryContract.ticketLastId(lotteryIndex)
+
   totalSupply = Number(totalSupply.toString())
 
   for (
@@ -60,13 +63,15 @@ async function getLotteryFromContract(lotteryContract: Contract, erc20Contract: 
     cycle.toNumber(),
     closeTimestamp.toNumber(),
     lotteryIndex,
-    await lotteryContract.isOnlyOwner(),
     participantCount.toNumber(),
     totalSupply,
     firstPrizeCount,
+    await lotteryContract.status(),
+    Number(ticketLastId.toString()),
     Number(ticketPrice.toString()),
     definitelySendingRules,
     randomSendingRules,
+    sellerLastId.toNumber(),
     sellerCommissionRatio
   )
   lottery.contract = lotteryContract

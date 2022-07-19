@@ -1381,10 +1381,10 @@
   dependencies:
     prop-types "^15.8.1"
 
-"@foxlottery/core-sdk@^1.1.7":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.1.7.tgz#9945697e500a614f8d9d436c8955411f5a66c7bd"
-  integrity sha512-YoD+dgygL9WDThwWaHzYjxXD1/ND2gUKO5a2m5t1mMtqzxRP+U3DxjQ/cEGmlj06iNgveHrFlATOYYjFp8KKcQ==
+"@foxlottery/core-sdk@^1.1.8":
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/@foxlottery/core-sdk/-/core-sdk-1.1.8.tgz#f1f6d594108c76a561c8b2f1e7760dacd4323fad"
+  integrity sha512-o5OaFbGQYfaJEjM69408h3xDKUWuvyyJDqcHpqlLzGAmeEzAxe+vL8+etAC+/2etraChXZFR65+dcL/gYW4Ung==
   dependencies:
     big.js "^6.1.1"
     decimal.js-light "^2.5.0"

@@ -1,14 +1,13 @@
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import BuyButton from 'app/components/BuyButton'
-import Erc20CurrencyBalance from 'app/components/Erc20CurrencyBalance'
 import Erc20CurrencyPrice from 'app/components/Erc20CurrencyPrice'
 import NumericalInput from 'app/components/Input/Numeric'
 import HeadlessUiModal from 'app/components/Modal/HeadlessUIModal'
 import TicketBuyDetail from 'app/components/TicketBuyDetail'
 import { useIsModalOpen, useToggleModal } from 'app/state/application/hooks'
 import { ApplicationModal } from 'app/state/application/reducer'
-import { useChangeInputValue, useInputValue, useSelectedErc20Currency } from 'app/state/lottery/hooks'
+import { useChangeInputValue, useInputValue } from 'app/state/lottery/hooks'
 import { useLottery } from 'app/state/lottery/hooks'
 import React, { FC } from 'react'
 
@@ -16,10 +15,10 @@ const BuyTicketModal: FC = () => {
   const { i18n } = useLingui()
   const isModalOpen = useIsModalOpen(ApplicationModal.BUY_TICKET)
   const toggleModal = useToggleModal(ApplicationModal.BUY_TICKET)
-  const erc20Currency = useSelectedErc20Currency()
   const inputValue = useInputValue()
   const changeInputValue = useChangeInputValue()
   const lottery = useLottery()
+  const erc20Currency = lottery?.erc20Currency
 
   return (
     <HeadlessUiModal.Controlled isOpen={isModalOpen} onDismiss={toggleModal} maxWidth="3xl">
@@ -39,9 +38,6 @@ const BuyTicketModal: FC = () => {
                       autoFocus
                       isOnlyInteger={true}
                     />
-                  </div>
-                  <div className="text-sm font-semibold text-gray-600 cursor-pointer select-none whitespace-nowrap">
-                    <Erc20CurrencyBalance />
                   </div>
                 </div>
               </div>
