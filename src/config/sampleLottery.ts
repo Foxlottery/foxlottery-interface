@@ -1,4 +1,4 @@
-import { DefinitelySendingRule, Lottery, RandomSendingRule } from '@foxlottery/core-sdk'
+import { DefinitelySendingRule, Lottery, LotteryStatus, RandomSendingRule } from '@foxlottery/core-sdk'
 
 import * as ETHEREUM from './tokens/ethereum'
 
@@ -27,13 +27,15 @@ const sampleLottery = new Lottery(
   86400 * 7,
   tomorrow.getTime() / 1000,
   1,
-  false,
+  1,
   165260,
   18 * 10 * 26,
+  LotteryStatus.ACCEPTING,
   10 * 25,
   100,
   definitelySendingRules,
   randomSendingRules,
+  1,
   100
 )
 
